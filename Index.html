@@ -1,0 +1,3701 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Formulario CITE 2026</title>
+<style>
+/* ─── RESET & BASE ─── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2744;--navy2:#243352;--gold:#d4a94c;--gold2:#e8c76d;
+  --cream:#faf8f3;--white:#ffffff;--border:#ddd5c8;
+  --text:#2c2c2c;--muted:#6b6b6b;--light:#f0ece5;
+  --accent:#c08a3e;--red:#c0392b;--green:#27ae60;--blue:#2980b9;
+  --shadow:0 2px 12px rgba(26,39,68,.12);--shadow-lg:0 6px 30px rgba(26,39,68,.18);
+  --radius:8px;--radius-sm:5px;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--cream);color:var(--text);min-height:100vh;line-height:1.5}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ─── HEADER ─── */
+.site-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:0}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:10px 32px;border-bottom:1px solid rgba(255,255,255,.12)}
+.header-top .logo-area{display:flex;align-items:center;gap:14px}
+.logo-circle{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:15px;letter-spacing:.5px}
+.header-top h1{font-size:18px;font-weight:600;letter-spacing:.3px}
+.header-top .sub{font-size:11px;opacity:.7;letter-spacing:.8px;text-transform:uppercase}
+.header-main{padding:28px 32px 24px;text-align:center}
+.header-main h2{font-size:26px;font-weight:300;letter-spacing:1.5px;margin-bottom:4px}
+.header-main .year-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:13px;padding:3px 14px;border-radius:20px;letter-spacing:1px}
+
+/* ─── LINKS PANEL ─── */
+.links-panel{background:var(--navy);border-top:2px solid var(--gold);padding:14px 32px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.link-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:10px 18px;flex:1;max-width:380px;min-width:240px}
+.link-box .link-label{color:var(--gold2);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.link-box .link-label svg{width:13px;height:13px}
+.link-box .link-url{display:flex;align-items:center;gap:8px}
+.link-box .link-url input{flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-sm);padding:6px 10px;color:#fff;font-size:12px;font-family:monospace;outline:none}
+.link-box .link-url input:focus{border-color:var(--gold)}
+.btn-copy{background:var(--gold);color:var(--navy);border:none;border-radius:var(--radius-sm);padding:6px 12px;cursor:pointer;font-size:11px;font-weight:600;white-space:nowrap;transition:background .2s}
+.btn-copy:hover{background:var(--gold2)}
+.btn-copy.copied{background:var(--green);color:#fff}
+
+/* ─── CONTAINER ─── */
+.container{max-width:1000px;margin:28px auto;padding:0 20px}
+
+/* ─── BENEFICIARY CARD ─── */
+.benef-card{background:var(--white);border-radius:12px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;border:1px solid var(--border)}
+.card-header{background:linear-gradient(90deg,var(--navy),var(--navy2));color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+.card-header .card-num{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.card-header .card-num .badge{background:var(--gold);color:var(--navy);border-radius:12px;padding:2px 10px;font-size:11px;font-weight:700}
+.btn-remove{background:rgba(192,58,43,.25);border:1px solid rgba(192,58,43,.4);color:#e8a09a;border-radius:var(--radius-sm);padding:4px 10px;cursor:pointer;font-size:12px;transition:all .2s}
+.btn-remove:hover{background:rgba(192,58,43,.45);color:#fff}
+
+/* ─── SECTIONS ─── */
+.section{padding:18px 20px}
+.section-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent);border-bottom:2px solid var(--light);padding-bottom:6px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title svg{width:16px;height:16px;color:var(--accent)}
+.section+.section{border-top:1px solid var(--light)}
+
+/* ─── GRID ─── */
+.grid{display:grid;gap:14px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:1fr 1fr 1fr}
+.grid-4{grid-template-columns:1fr 1fr 1fr 1fr}
+@media(max-width:700px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}}
+
+/* ─── FIELD ─── */
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:.3px}
+.field label .req{color:var(--red);margin-left:2px}
+.field input,.field select{border:1px solid var(--border);border-radius:var(--radius);padding:8px 10px;font-size:13px;background:var(--white);color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(41,128,185,.15)}
+.field input[disabled],.field select[disabled],.field input.auto-filled{background:var(--light);color:var(--muted);cursor:not-allowed}
+.otro-wrap{display:none;margin-top:7px;position:relative}
+.otro-wrap.visible{display:block}
+.otro-wrap input{width:100%;padding:7px 10px 7px 32px;border:1px solid var(--gold);border-radius:var(--radius-sm);font-size:12.5px;background:#fffbf0;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+.otro-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(192,138,62,.15)}
+.otro-wrap input::placeholder{color:#b8a070}
+.otro-wrap .otro-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--accent);pointer-events:none}
+.otro-wrap .otro-icon svg{width:15px;height:15px}
+.field input.auto-filled{font-style:italic;font-weight:600;color:var(--accent)}
+.field .hint{font-size:10px;color:var(--muted);font-style:italic}
+.field select option:first-child{color:var(--muted)}
+
+/* ─── TIPO BADGE ─── */
+.tipo-display{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:var(--radius);background:var(--light);border:1px solid var(--border);min-height:36px}
+.tipo-badge{display:inline-block;padding:2px 12px;border-radius:14px;font-size:12px;font-weight:700;letter-spacing:.5px}
+.tipo-badge.publico{background:#e8f4fd;color:var(--blue);border:1px solid #b8ddf0}
+.tipo-badge.privado{background:#fef3e2;color:var(--accent);border:1px solid #f0d5a8}
+
+/* ─── ADD BUTTON ─── */
+.add-area{text-align:center;padding:16px 0}
+.btn-add{background:var(--gold);color:var(--navy);border:none;border-radius:var(--radius);padding:11px 28px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;letter-spacing:.5px}
+.btn-add:hover{background:var(--gold2);box-shadow:var(--shadow)}
+.btn-add svg{width:18px;height:18px}
+
+/* ─── WARNING BOX ─── */
+.warn-box{background:#fff3cd;border:1px solid #ffc107;border-radius:var(--radius);padding:14px 18px;margin:0 0 14px;display:none;align-items:flex-start;gap:10px}
+.warn-box.show{display:flex}
+.warn-box svg{width:20px;height:20px;color:#856404;flex-shrink:0;margin-top:1px}
+.warn-box .wb-txt{font-size:12px;color:#856404}
+.warn-box .wb-txt strong{display:block;margin-bottom:2px}
+
+/* ─── BOTTOM BAR ─── */
+.bottom-bar{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;box-shadow:var(--shadow)}
+.btn-export{background:var(--navy);color:#fff;border:none;border-radius:var(--radius);padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s;display:inline-flex;align-items:center;gap:7px}
+.btn-export:hover{background:var(--navy2)}
+.btn-export svg{width:16px;height:16px}
+.btn-send{background:var(--green);color:#fff;border:none;border-radius:var(--radius);padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s;display:inline-flex;align-items:center;gap:7px}
+.btn-send:hover{background:#219a52}
+.btn-send svg{width:16px;height:16px}
+.btn-send:disabled{background:#7dba8e;cursor:not-allowed}
+.counter{font-size:13px;color:var(--muted)}
+.counter strong{color:var(--navy)}
+
+/* ─── SPIN ─── */
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:15px;height:15px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .55s linear infinite;vertical-align:middle}
+
+/* ─── OVERLAYS ─── */
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(26,39,68,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);z-index:1000;display:flex;align-items:center;justify-content:center;visibility:visible}
+.overlay.hidden{display:none}
+.modal{background:#fff;border-radius:16px;width:90%;max-width:480px;max-height:95vh;overflow-y:auto;box-shadow:0 28px 64px rgba(0,0,0,.4);animation:slideUp .28s cubic-bezier(.4,0,.2,1)}
+@keyframes slideUp{from{transform:translateY(36px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-hd{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:28px 26px 22px;text-align:center}
+.modal-hd .m-logo{width:50px;height:50px;margin:0 auto 8px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:16px;letter-spacing:.5px}
+.modal-hd h2{color:#fff;font-size:18px;font-weight:600}
+.modal-hd p{color:rgba(255,255,255,.58);font-size:11.5px;margin-top:3px}
+.modal-bd{padding:22px 26px 26px}
+.modal-bd .mf{margin-bottom:14px}
+.modal-bd .mf label{display:block;font-size:11.5px;font-weight:600;color:var(--navy);margin-bottom:4px;letter-spacing:.3px}
+.modal-bd .mf input,.modal-bd .mf .inp-row input{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:var(--radius);font-size:13px;outline:none;transition:border-color .2s;background:#fff;box-sizing:border-box}
+.modal-bd .mf input:focus,.modal-bd .mf .inp-row input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(41,128,185,.15)}
+.modal-bd .mf input[type=password]{letter-spacing:3px;font-size:15px}
+.modal-bd .mf .mhint{font-size:10.5px;color:var(--muted);margin-top:3px}
+.inp-row{display:flex;gap:8px;align-items:flex-end}
+.inp-row input{flex:1}
+.btn-gen{background:var(--gold);color:var(--navy);border:none;border-radius:var(--radius-sm);padding:9px 12px;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s}
+.btn-gen:hover{background:var(--gold2)}
+.btn-modal{width:100%;padding:11px;background:var(--navy);color:#fff;border:none;border-radius:var(--radius);font-size:14px;font-weight:600;cursor:pointer;margin-top:6px;transition:background .2s}
+.btn-modal:hover{background:var(--navy2)}
+.btn-modal.green{background:var(--green)}
+.btn-modal.green:hover{background:#219a52}
+.btn-modal.gold{background:var(--gold);color:var(--navy)}
+.btn-modal.gold:hover{background:var(--gold2)}
+.modal-ft{text-align:center;margin-top:14px;padding-top:10px;border-top:1px solid var(--light)}
+.modal-ft a{font-size:12px;color:var(--blue);cursor:pointer}
+.modal-ft a:hover{text-decoration:underline}
+.login-err{background:#fdecea;color:var(--red);border:1px solid #f5c6cb;border-radius:var(--radius-sm);padding:8px 12px;font-size:12px;margin-bottom:12px;display:none;text-align:center}
+.login-err.show{display:block}
+
+/* ─── SETUP STEPS ─── */
+.setup-steps{margin-bottom:18px}
+.sstep{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;margin-bottom:7px;background:var(--light);border-radius:var(--radius);border:1px solid var(--border)}
+.sstep .sn{min-width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.sstep .st h4{font-size:12px;color:var(--navy);margin-bottom:1px}
+.sstep .st p{font-size:10.5px;color:var(--muted);line-height:1.4}
+.sstep .st a{color:var(--blue);font-size:10.5px}
+.sstep .st strong{color:var(--navy)}
+
+/* ─── ADMIN PANEL ─── */
+.admin-panel{display:none;background:var(--white);border:1px solid var(--border);border-radius:12px;margin-top:28px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.admin-panel.visible{display:block}
+.admin-header{background:var(--navy);color:#fff;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.admin-header h3{font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
+.admin-header svg{width:18px;height:18px;color:var(--gold)}
+.admin-body{padding:20px}
+.cfg-bar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--light);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:14px;flex-wrap:wrap}
+.cfg-bar .dot{width:9px;height:9px;border-radius:50%;background:var(--green);transition:background .3s}
+.cfg-bar .dot.off{background:var(--red)}
+.cfg-bar .cfg-lbl{font-size:12px;color:var(--navy);font-weight:600}
+.cfg-bar .cfg-time{font-size:11px;color:var(--muted);margin-left:auto}
+.btn-load{background:var(--blue);color:#fff;border:none;border-radius:var(--radius-sm);padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.btn-load:hover{background:#2471a3}
+.btn-load svg{width:13px;height:13px}
+.btn-load:disabled{background:#7eacc7;cursor:not-allowed}
+.admin-table-wrap{overflow-x:auto;max-height:400px;border:1px solid var(--border);border-radius:var(--radius)}
+.admin-table{width:100%;border-collapse:collapse;font-size:12px}
+.admin-table th{background:var(--light);color:var(--navy);font-weight:600;padding:9px 10px;text-align:left;position:sticky;top:0;border-bottom:2px solid var(--border);white-space:nowrap}
+.admin-table td{padding:7px 10px;border-bottom:1px solid var(--border);white-space:nowrap}
+.admin-table tr:last-child td{border-bottom:none}
+.admin-table tr:hover td{background:rgba(41,128,185,.05)}
+.admin-empty{text-align:center;padding:40px;color:var(--muted);font-style:italic}
+.admin-actions{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.btn-admin-export{background:var(--green);color:#fff;border:none;border-radius:var(--radius);padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn-admin-export:hover{background:#219a52}
+.btn-clear{background:#e74c3c;color:#fff;border:none;border-radius:var(--radius);padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer}
+.btn-clear:hover{background:#c0392b}
+.admin-count{font-size:12px;color:var(--muted);margin-left:auto}
+
+/* ─── TOAST ─── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 22px;border-radius:var(--radius);box-shadow:var(--shadow-lg);font-size:13px;transform:translateY(100px);opacity:0;transition:all .35s cubic-bezier(.4,0,.2,1);z-index:999;display:flex;align-items:center;gap:10px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast svg{width:18px;height:18px;color:var(--gold)}
+
+/* ─── FOOTER ─── */
+footer{text-align:center;padding:24px;color:var(--muted);font-size:11px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="logo-area">
+      <div class="logo-circle">CITE</div>
+      <div><h1>Centro de Innovación Tecnológica y Empresarial</h1><div class="sub">Sistema de Registro de Beneficiarios</div></div>
+    </div>
+  </div>
+  <div class="header-main">
+    <h2>FORMULARIO DE BENEFICIARIOS</h2>
+    <span class="year-badge">2026</span>
+  </div>
+</header>
+
+<!-- ═══ ENLACES (Admin / Compartir) ═══ -->
+<div class="links-panel" id="linksPanel">
+  <div class="link-box">
+    <div class="link-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      Enlace del Administrador
+    </div>
+    <div class="link-url">
+      <input type="text" id="adminLinkInput" readonly/>
+      <button class="btn-copy" onclick="copyLink('admin')">Copiar</button>
+    </div>
+  </div>
+  <div class="link-box">
+    <div class="link-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Enlace para Compartir
+    </div>
+    <div class="link-url">
+      <input type="text" id="shareLinkInput" readonly/>
+      <button class="btn-copy" onclick="copyLink('share')">Copiar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTENEDOR PRINCIPAL ═══ -->
+<div class="container">
+  <div id="benefCardsContainer"></div>
+
+  <!-- Botón agregar -->
+  <div class="add-area">
+    <button class="btn-add" onclick="addBeneficiary()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Agregar Otro Beneficiario
+    </button>
+  </div>
+
+  <!-- Advertencia: sin URL -->
+  <div class="warn-box" id="warnNoUrl">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <div class="wb-txt"><strong>Sistema no configurado</strong>El administrador debe configurar el sistema antes de enviar datos.</div>
+  </div>
+
+  <!-- Barra inferior -->
+  <div class="bottom-bar">
+    <div class="counter">Total beneficiarios: <strong id="totalCount">0</strong></div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button class="btn-send" id="btnSend" onclick="enviarDatos()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Enviar datos
+      </button>
+      <button class="btn-export" id="btnExportLocal" style="display:none" onclick="exportExcel()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Exportar local
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ PANEL ADMINISTRADOR ═══ -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-header">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> Panel de Administración – Registros</h3>
+    </div>
+    <div class="admin-body">
+      <div class="cfg-bar">
+        <span class="dot off" id="cfgDot"></span>
+        <span class="cfg-lbl" id="cfgLbl">No conectado</span>
+        <button class="btn-load" id="btnLoad" onclick="cargarRegistros()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          Cargar registros
+        </button>
+        <span class="cfg-time" id="cfgTime"></span>
+      </div>
+      <div class="admin-actions">
+        <button class="btn-admin-export" onclick="exportAdmin()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar Excel
+        </button>
+        <button class="btn-clear" onclick="clearRecords()">Limpiar local</button>
+        <span class="admin-count" id="adminCount">0 registros</span>
+      </div>
+      <div class="admin-table-wrap" id="adminTableWrap">
+        <div class="admin-empty" id="adminEmpty">No hay registros aún. Los datos enviados aparecerán aquí.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 – Centro de Innovación Tecnológica y Empresarial (CITE) – Sistema de Registro de Beneficiarios</footer>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="toastMsg"></span></div>
+
+<!-- ═══ LOGIN OVERLAY ═══ -->
+<div class="overlay hidden" id="loginOverlay">
+  <div class="modal">
+    <div class="modal-hd">
+      <div class="m-logo">CITE</div>
+      <h2>Panel de Administración</h2>
+      <p>Ingrese su contraseña para continuar</p>
+    </div>
+    <div class="modal-bd">
+      <div class="login-err" id="loginErr">Contraseña incorrecta. Intente nuevamente.</div>
+      <div class="mf">
+        <label>Contraseña</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"/>
+      </div>
+      <button class="btn-modal" onclick="doLogin()">Iniciar sesión</button>
+      <div class="modal-ft"><a onclick="showSetup()">¿Primera vez? Configurar sistema</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SETUP OVERLAY ═══ -->
+<div class="overlay hidden" id="setupOverlay">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-hd">
+      <div class="m-logo">CITE</div>
+      <h2>Configuración del Sistema</h2>
+      <p>Siga los pasos para conectar la base de datos</p>
+    </div>
+    <div class="modal-bd">
+      <div class="setup-steps">
+        <div class="sstep"><div class="sn">1</div><div class="st"><h4>Crear Google Sheet</h4><p>Abra <a href="https://sheets.google.com/create" target="_blank">Google Sheets</a> y cree una hoja nueva.</p></div></div>
+        <div class="sstep"><div class="sn">2</div><div class="st"><h4>Generar clave y copiar código</h4><p>Clic en <strong>Generar</strong> y luego en <strong>Copiar código Apps Script</strong>.</p></div></div>
+        <div class="sstep"><div class="sn">3</div><div class="st"><h4>Abrir Apps Script</h4><p>En la hoja: <strong>Extensiones → Apps Script</strong>. Borre todo y pegue el código.</p></div></div>
+        <div class="sstep"><div class="sn">4</div><div class="st"><h4>Desplegar</h4><p><strong>Desplegar → Nuevo despliegue → Web app</strong>. Ejecutar como: Yo. Acceso: Cualquier persona. Copie la URL.</p></div></div>
+      </div>
+      <div class="mf">
+        <label>Clave Secreta (protege el acceso a datos)</label>
+        <div class="inp-row">
+          <input type="text" id="setupKey" placeholder="Se genera automáticamente" readonly/>
+          <button class="btn-gen" onclick="generateKey()">Generar</button>
+        </div>
+      </div>
+      <div class="mf">
+        <button class="btn-modal gold" onclick="copyAppsCode()">📋 Copiar código Apps Script</button>
+      </div>
+      <div class="mf">
+        <label>URL del Web App (Apps Script)</label>
+        <input type="text" id="setupUrl" placeholder="https://script.google.com/macros/s/.../exec"/>
+      </div>
+      <div class="mf">
+        <label>Contraseña del Administrador</label>
+        <input type="password" id="setupPass" placeholder="••••••••"/>
+      </div>
+      <div class="mf">
+        <label>Confirmar contraseña</label>
+        <input type="password" id="setupPass2" placeholder="••••••••"/>
+      </div>
+      <button class="btn-modal green" onclick="saveSetup()">Guardar configuración</button>
+      <div class="modal-ft"><a onclick="document.getElementById('setupOverlay').classList.add('hidden');document.getElementById('loginOverlay').classList.remove('hidden')">← Atrás</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 1: DATOS Y CONFIGURACIÓN
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ─── APPS SCRIPT TEMPLATE ───
+const APPS_SCRIPT_CODE = `// ================================================
+// CITE 2026 – Backend Formulario Beneficiarios
+// ================================================
+const SHEET_NAME = 'Beneficiarios';
+const SECRET_KEY = 'CITE2026_cambiar_esta_clave';
+
+function doGet(e) {
+  try {
+    var action = (e.parameter && e.parameter.action) || '';
+    var result;
+    if      (action === 'save') result = saveRecord(e);
+    else if (action === 'load') result = loadRecords(e);
+    else if (action === 'test') result = {ok:true, msg:'Conexion OK', t:new Date().toISOString()};
+    else                         result = {ok:true, msg:'API CITE 2026'};
+    return respond(result, e);
+  } catch(err) { return respond({ok:false, error:err.message}, e); }
+}
+
+function saveRecord(e) {
+  var jsonStr = e.parameter.data || '';
+  if (!jsonStr) return {ok:false, error:'Sin datos'};
+  var record = JSON.parse(jsonStr);
+  var sheet  = getSheet();
+  if (sheet.getLastRow() === 0) {
+    sheet.getRange(1,1,1,Object.keys(record).length).setValues([Object.keys(record)]);
+  }
+  var hdrs = sheet.getRange(1,1,1,sheet.getLastColumn()).getValues()[0];
+  var row  = hdrs.map(function(h){ return record[h] != null ? String(record[h]) : ''; });
+  sheet.appendRow(row);
+  return {ok:true, id:sheet.getLastRow()};
+}
+
+function loadRecords(e) {
+  if ((e.parameter.key || '') !== SECRET_KEY) return {ok:false, error:'Clave incorrecta'};
+  var sheet = getSheet();
+  var last  = sheet.getLastRow();
+  if (last <= 1) return {ok:true, data:[], count:0};
+  var hdrs  = sheet.getRange(1,1,1,sheet.getLastColumn()).getValues()[0];
+  var vals  = sheet.getRange(2,1,last-1,sheet.getLastColumn()).getValues();
+  var data  = vals.map(function(row){
+    var o={}; hdrs.forEach(function(h,i){o[h]=row[i];}); return o;
+  });
+  return {ok:true, data:data, count:data.length};
+}
+
+function getSheet(){
+  var ss=SpreadsheetApp.getActiveSpreadsheet();
+  return ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
+}
+function respond(d, e){
+  var json = JSON.stringify(d);
+  var cb   = e && e.parameter && e.parameter.callback;
+  if (cb) return ContentService.createTextOutput(cb+'('+json+')').setMimeType(ContentService.MIME_TYPES.JAVASCRIPT);
+  return ContentService.createTextOutput(json).setMimeType(ContentService.MIME_TYPES.JSON);
+}`;
+
+// ─── CONFIG GLOBAL ───
+const CFG = { url:'', key:'', pass:'' };
+let isAdmin = false, adminAuth = false;
+let _genKey = 'CITE2026_cambiar_esta_clave';
+let benefCount = 0;
+let records = [];
+
+// ─── CONTINÚA EN SIGUIENTE BLOQUE ───
+
+// ─── DATOS EMBEBIDOS ───
+const DATA = {
+  "cite_tipo": {
+    "CITE AREQUIPA": "Privado",
+    "CITE AYACUCHO": "Público",
+    "CITE CAMÉLIDOS SUDAMERICANOS": "Privado",
+    "CITE CHULUCANAS": "Privado",
+    "CITE HUANCAVELICA": "Privado",
+    "CITE SIPÁN": "Público",
+    "CITE UCAYALI": "Público",
+    "CITE UTCUMBAMBA": "Privado"
+  },
+  "cites": [
+    "CITE AREQUIPA",
+    "CITE AYACUCHO",
+    "CITE CAMÉLIDOS SUDAMERICANOS",
+    "CITE CHULUCANAS",
+    "CITE HUANCAVELICA",
+    "CITE SIPÁN",
+    "CITE UCAYALI",
+    "CITE UTCUMBAMBA"
+  ],
+  "tipo_benef": [
+    "Proveedores de materias primas",
+    "Proveedores de servicios técnicos",
+    "Artesanos",
+    "Unidades productivas artesanales",
+    "Asociaciones, cooperativas y comunidades artesanales",
+    "Diseñadores",
+    "Universidades, institutos y escuelas de diseño",
+    "Equipos creativos y técnicos especializados",
+    "Comercializadores de artesanía",
+    "Exportadores y operadores comerciales",
+    "Operadores turísticos",
+    "Turistas nacionales",
+    "Turistas internacionales",
+    "Compradores institucionales",
+    "Estudiantes de educación básica (primaria)",
+    "Estudiantes de educación básica (secundaria)",
+    "Alpaquero",
+    "Otro (Especifique)"
+  ],
+  "sexo": [
+    "Masculino",
+    "Femenino"
+  ],
+  "nivel_edu": [
+    "Sin nivel",
+    "Inicial",
+    "Primaria",
+    "Secundaria",
+    "Superior"
+  ],
+  "autoident": [
+    "Quechua",
+    "Aymara",
+    "Indígena u originario de la amzonía",
+    "Perteneciente o parte de otro pueblo indigena u originaria",
+    "Negro, moreno zambo, mulato o afrodescendiente",
+    "Blanco",
+    "Mestizo",
+    "Otro (Especifique)"
+  ],
+  "discapacidad": [
+    "Sí",
+    "No"
+  ],
+  "linea_art": [
+    "01. Alfarería y cerámica",
+    "02. Bisuteria",
+    "03. Cerería",
+    "04. Cueros y pieles",
+    "05. Fibras vegetales",
+    "06. Imaginería",
+    "07. Instrumentos musicales",
+    "08. Joyería y orfebrería",
+    "09. Resinas naturales",
+    "10. Mates y Huingos",
+    "11. Metalistería",
+    "12. Pintura",
+    "13. Recurso Acuícola",
+    "14. Talla",
+    "15. Textilería",
+    "16. Vidrio",
+    "17. Artesanías nuevas y otras no identificadas"
+  ],
+  "asociacion": [
+    "Sí",
+    "No"
+  ],
+  "oe_ae": {
+    "OE1. Desarrollar productos atractivos para los mercados": [
+      "AE.1.1. Conocimiento de mercado",
+      "AE.1.2. Diseño y desarrollo de productos"
+    ],
+    "OE2. Desarrollar una articulación rentable de la artesanía con el mercado": [
+      "AE.2.1. Fomento de canales de comercialización para el mercado nacional y turístico",
+      "AE.2.2. Fomento de canales de comercialización para el mercado internacional"
+    ],
+    "OE3. Fortalecer el posicionamiento del valor de la artesanía peruana": [
+      "AE.3.1. Promoción de la artesanía para el mercado nacional",
+      "AE.3.2. Promoción de la artesanía para el mercado internacional"
+    ],
+    "OE4. Impulsar la productividad, calidad, tecnificación y profesionalización de la artesanía": [
+      "AE.4.1. Asistencia técnica a unidades productivas relacionadas a la actividad artesanal",
+      "AE.4.2. Capacitación en mejora de la productividad  y calidad a unidades productivas relacionadas a la actividad artesanal",
+      "AE.4.3. Normalización de la producción artesanal",
+      "AE.4.4. Intervenciones de evaluación de artesanos en los perfiles ocupacionales priorizados",
+      "AE.4.5. Intervenciones para desarrollar la oferta formativa de las lineas artesanales priorizadas"
+    ],
+    "OE5. Promover la actitud empresarial en la artesanía": [
+      "AE.5.1. Fomento de la asociatividad con fines comerciales",
+      "AE.5.2. Fortalecimiento de capacidades empresariales para la actividad artesanal",
+      "AE.5.3. Consolidación de la actividad empresarial de la artesanía"
+    ],
+    "OE6. Promover el uso sostenible de las materias primas e insumos": [
+      "AE.6.1. Elaboración de herramientas técnico legales para el fomento del manejo sostenible de materias primas",
+      "AE.6.2. Promover el uso de insumos químicos controlados",
+      "AE.6.3. Promover las investigaciones en el uso de materias primas e insumos alternativos (Innovación)"
+    ],
+    "OE7. Promover el uso de las técnicas tradicionales": [
+      "AE.7.1. Fomento de la investigación de las técnicas tradicionales",
+      "AE.7.2. Reconocimiento a artesanos por su trayectoria y aportes",
+      "AE.7.3. Fomento de la artesanía tradicional"
+    ],
+    "OE8. Promover la actitud de innovación en la cadena de valor de la artesanía": [
+      "AE.8.1. Sensibilización respecto a innovación",
+      "AE.8.2. Desarrollo de espacios para fomentar la innovación",
+      "AE.8.3. Incentivo a la innovación en la producción artesanal"
+    ],
+    "OE9. Mejorar la articulación multisectorial e intergubernamental": [
+      "AE.9.1. Gestión multisectorial",
+      "AE.9.2. Gestión intergubernamental",
+      "AE.9.3. Fomento a la institucionalización de los PERDAR - Planes Estratégicos Regionales de Artesanía",
+      "AE.9.4. Promoción de la representatividad de los artesanos en el desarrollo regional/local"
+    ],
+    "OE10. Promover el financiamiento para la artesanía": [
+      "AE.10.1. Desarrollo de proyectos de inversión pública",
+      "AE.10.2. Promoción de la cooperación internacional",
+      "AE.10.3. Promoción de la inversión privada",
+      "AE.10.4. Participación en fondos concursables"
+    ],
+    "OE11. Incrementar la disponibilidad y acceso a la información": [
+      "AE.11.1. Actualización permanente del Registro de Artesanos",
+      "AE.11.2. Recolección, construcción y actualización de información estadística de la actividad artesanal",
+      "AE.11.3. Difusión de información de la actividad artesanal"
+    ]
+  },
+  "comp_act": {
+    "I + D + i": [
+      "1.Estudio ténico",
+      "2. Investigaciones",
+      "3.Elaboración y/o aplicación de Normas Técnicas",
+      "4.Desarrollo de productos y/o servicios"
+    ],
+    "Transferencia Tecnológica": [
+      "1. Laboratorio de cocreación (Fab Lab)",
+      "2.Demostraciones prácticas (Living Lab)",
+      "3.Asistencia técnica",
+      "4. Implementación de estándares y metodologías",
+      "5.Certificación",
+      "6. Colecciones",
+      "7.Aceleración empresarial",
+      "8. Pasantía/intercambio"
+    ],
+    "Capacitación": [
+      "1. Sensibilización",
+      "2. Talleres",
+      "3.Cursos",
+      "4. Programas de capacitación",
+      "5. Formación especializada"
+    ],
+    "Difusión de Información": [
+      "1. Generación de información estratégica",
+      "2. Difusión de información tecnológica especializada",
+      "3. Gestión de promoción informativa",
+      "4. Campañas informativas",
+      "5. Espacios de difusión técnica",
+      "6. Exhibición / Exposición",
+      "7. Reconocimientos institucionales",
+      "8. Posicionamiento institucional y de marca"
+    ],
+    "Articulación": [
+      "1. Articulación institucional y gobernanza",
+      "2. Articulación para el desarrollo de iniciativas",
+      "3. Articulación comercial y de acceso a mercados",
+      "4. Articulación mediante espacios de interacción productiva y comercial",
+      "5. Articulación territorial y posicionamiento sectorial",
+      "6. Articulación regulatoria y de reconocimiento institucional"
+    ]
+  },
+  "ubigeo": {
+    "AMAZONAS": {
+      "CHACHAPOYAS": [
+        "CHACHAPOYAS",
+        "ASUNCION",
+        "BALSAS",
+        "CHETO",
+        "CHILIQUIN",
+        "CHUQUIBAMBA",
+        "GRANADA",
+        "HUANCAS",
+        "LA JALCA",
+        "LEIMEBAMBA",
+        "LEVANTO",
+        "MAGDALENA",
+        "MARISCAL CASTILLA",
+        "MOLINOPAMPA",
+        "MONTEVIDEO",
+        "OLLEROS",
+        "QUINJALCA",
+        "SAN FRANCISCO DE DAGUAS",
+        "SAN ISIDRO DE MAINO",
+        "SOLOCO",
+        "SONCHE"
+      ],
+      "BAGUA": [
+        "BAGUA",
+        "ARAMANGO",
+        "COPALLIN",
+        "EL PARCO",
+        "IMAZA",
+        "LA PECA"
+      ],
+      "BONGARA": [
+        "JUMBILLA",
+        "CHISQUILLA",
+        "CHURUJA",
+        "COROSHA",
+        "CUISPES",
+        "FLORIDA",
+        "JAZAN",
+        "RECTA",
+        "SAN CARLOS",
+        "SHIPASBAMBA",
+        "VALERA",
+        "YAMBRASBAMBA"
+      ],
+      "CONDORCANQUI": [
+        "NIEVA",
+        "EL CENEPA",
+        "RIO SANTIAGO"
+      ],
+      "LUYA": [
+        "LAMUD",
+        "CAMPORREDONDO",
+        "COCABAMBA",
+        "COLCAMAR",
+        "CONILA",
+        "INGUILPATA",
+        "LONGUITA",
+        "LONYA CHICO",
+        "LUYA",
+        "LUYA VIEJO",
+        "MARIA",
+        "OCALLI",
+        "OCUMAL",
+        "PISUQUIA",
+        "PROVIDENCIA",
+        "SAN CRISTOBAL",
+        "SAN FRANCISCO DEL YESO",
+        "SAN JERONIMO",
+        "SAN JUAN DE LOPECANCHA",
+        "SANTA CATALINA",
+        "SANTO TOMAS",
+        "TINGO",
+        "TRITA"
+      ],
+      "RODRIGUEZ DE MENDOZA": [
+        "SAN NICOLAS",
+        "CHIRIMOTO",
+        "COCHAMAL",
+        "HUAMBO",
+        "LIMABAMBA",
+        "LONGAR",
+        "MARISCAL BENAVIDES",
+        "MILPUC",
+        "OMIA",
+        "SANTA ROSA",
+        "TOTORA",
+        "VISTA ALEGRE"
+      ],
+      "UTCUBAMBA": [
+        "BAGUA GRANDE",
+        "CAJARURO",
+        "CUMBA",
+        "EL MILAGRO",
+        "JAMALCA",
+        "LONYA GRANDE",
+        "YAMON"
+      ]
+    },
+    "ANCASH": {
+      "HUARAZ": [
+        "HUARAZ",
+        "COCHABAMBA",
+        "COLCABAMBA",
+        "HUANCHAY",
+        "INDEPENDENCIA",
+        "JANGAS",
+        "LA LIBERTAD",
+        "OLLEROS",
+        "PAMPAS",
+        "PARIACOTO",
+        "PIRA",
+        "TARICA"
+      ],
+      "AIJA": [
+        "AIJA",
+        "CORIS",
+        "HUACLLAN",
+        "LA MERCED",
+        "SUCCHA"
+      ],
+      "ANTONIO RAYMONDI": [
+        "LLAMELLIN",
+        "ACZO",
+        "CHACCHO",
+        "CHINGAS",
+        "MIRGAS",
+        "SAN JUAN DE RONTOY"
+      ],
+      "ASUNCION": [
+        "CHACAS",
+        "ACOCHACA"
+      ],
+      "BOLOGNESI": [
+        "CHIQUIAN",
+        "ABELARDO PARDO LEZAMETA",
+        "ANTONIO RAYMONDI",
+        "AQUIA",
+        "CAJACAY",
+        "CANIS",
+        "COLQUIOC",
+        "HUALLANCA",
+        "HUASTA",
+        "HUAYLLACAYAN",
+        "LA PRIMAVERA",
+        "MANGAS",
+        "PACLLON",
+        "SAN MIGUEL DE CORPANQUI",
+        "TICLLOS"
+      ],
+      "CARHUAZ": [
+        "CARHUAZ",
+        "ACOPAMPA",
+        "AMASHCA",
+        "ANTA",
+        "ATAQUERO",
+        "MARCARA",
+        "PARIAHUANCA",
+        "SAN MIGUEL DE ACO",
+        "SHILLA",
+        "TINCO",
+        "YUNGAR"
+      ],
+      "CARLOS FERMIN FITZCARRALD": [
+        "SAN LUIS",
+        "SAN NICOLAS",
+        "YAUYA"
+      ],
+      "CASMA": [
+        "CASMA",
+        "BUENA VISTA ALTA",
+        "COMANDANTE NOEL",
+        "YAUTAN"
+      ],
+      "CORONGO": [
+        "CORONGO",
+        "ACO",
+        "BAMBAS",
+        "CUSCA",
+        "LA PAMPA",
+        "YANAC",
+        "YUPAN"
+      ],
+      "HUARI": [
+        "HUARI",
+        "ANRA",
+        "CAJAY",
+        "CHAVIN DE HUANTAR",
+        "HUACACHI",
+        "HUACCHIS",
+        "HUACHIS",
+        "HUANTAR",
+        "MASIN",
+        "PAUCAS",
+        "PONTO",
+        "RAHUAPAMPA",
+        "RAPAYAN",
+        "SAN MARCOS",
+        "SAN PEDRO DE CHANA",
+        "UCO"
+      ],
+      "HUARMEY": [
+        "HUARMEY",
+        "COCHAPETI",
+        "CULEBRAS",
+        "HUAYAN",
+        "MALVAS"
+      ],
+      "HUAYLAS": [
+        "CARAZ",
+        "HUALLANCA",
+        "HUATA",
+        "HUAYLAS",
+        "MATO",
+        "PAMPAROMAS",
+        "PUEBLO LIBRE",
+        "SANTA CRUZ",
+        "SANTO TORIBIO",
+        "YURACMARCA"
+      ],
+      "MARISCAL LUZURIAGA": [
+        "PISCOBAMBA",
+        "CASCA",
+        "ELEAZAR GUZMAN BARRON",
+        "FIDEL OLIVAS ESCUDERO",
+        "LLAMA",
+        "LLUMPA",
+        "LUCMA",
+        "MUSGA"
+      ],
+      "OCROS": [
+        "OCROS",
+        "ACAS",
+        "CAJAMARQUILLA",
+        "CARHUAPAMPA",
+        "COCHAS",
+        "CONGAS",
+        "LLIPA",
+        "SAN CRISTOBAL DE RAJAN",
+        "SAN PEDRO",
+        "SANTIAGO DE CHILCAS"
+      ],
+      "PALLASCA": [
+        "CABANA",
+        "BOLOGNESI",
+        "CONCHUCOS",
+        "HUACASCHUQUE",
+        "HUANDOVAL",
+        "LACABAMBA",
+        "LLAPO",
+        "PALLASCA",
+        "PAMPAS",
+        "SANTA ROSA",
+        "TAUCA"
+      ],
+      "POMABAMBA": [
+        "POMABAMBA",
+        "HUAYLLAN",
+        "PAROBAMBA",
+        "QUINUABAMBA"
+      ],
+      "RECUAY": [
+        "RECUAY",
+        "CATAC",
+        "COTAPARACO",
+        "HUAYLLAPAMPA",
+        "LLACLLIN",
+        "MARCA",
+        "PAMPAS CHICO",
+        "PARARIN",
+        "TAPACOCHA",
+        "TICAPAMPA"
+      ],
+      "SANTA": [
+        "CHIMBOTE",
+        "CACERES DEL PERU",
+        "COISHCO",
+        "MACATE",
+        "MORO",
+        "NEPEÑA",
+        "SAMANCO",
+        "SANTA",
+        "NUEVO CHIMBOTE"
+      ],
+      "SIHUAS": [
+        "SIHUAS",
+        "ACOBAMBA",
+        "ALFONSO UGARTE",
+        "CASHAPAMPA",
+        "CHINGALPO",
+        "HUAYLLABAMBA",
+        "QUICHES",
+        "RAGASH",
+        "SAN JUAN",
+        "SICSIBAMBA"
+      ],
+      "YUNGAY": [
+        "YUNGAY",
+        "CASCAPARA",
+        "MANCOS",
+        "MATACOTO",
+        "QUILLO",
+        "RANRAHIRCA",
+        "SHUPLUY",
+        "YANAMA"
+      ]
+    },
+    "APURIMAC": {
+      "ABANCAY": [
+        "ABANCAY",
+        "CHACOCHE",
+        "CIRCA",
+        "CURAHUASI",
+        "HUANIPACA",
+        "LAMBRAMA",
+        "PICHIRHUA",
+        "SAN PEDRO DE CACHORA",
+        "TAMBURCO"
+      ],
+      "ANDAHUAYLAS": [
+        "ANDAHUAYLAS",
+        "ANDARAPA",
+        "CHIARA",
+        "HUANCARAMA",
+        "HUANCARAY",
+        "HUAYANA",
+        "KISHUARA",
+        "PACOBAMBA",
+        "PACUCHA",
+        "PAMPACHIRI",
+        "POMACOCHA",
+        "SAN ANTONIO DE CACHI",
+        "SAN JERONIMO",
+        "SAN MIGUEL DE CHACCRAMPA",
+        "SANTA MARIA DE CHICMO",
+        "TALAVERA",
+        "TUMAY HUARACA",
+        "TURPO",
+        "KAQUIABAMBA",
+        "JOSE MARIA ARGUEDAS"
+      ],
+      "ANTABAMBA": [
+        "ANTABAMBA",
+        "EL ORO",
+        "HUAQUIRCA",
+        "JUAN ESPINOZA MEDRANO",
+        "OROPESA",
+        "PACHACONAS",
+        "SABAINO"
+      ],
+      "AYMARAES": [
+        "CHALHUANCA",
+        "CAPAYA",
+        "CARAYBAMBA",
+        "CHAPIMARCA",
+        "COLCABAMBA",
+        "COTARUSE",
+        "HUAYLLO",
+        "JUSTO APU SAHUARAURA",
+        "LUCRE",
+        "POCOHUANCA",
+        "SAN JUAN DE CHACÑA",
+        "SAÑAYCA",
+        "SORAYA",
+        "TAPAIRIHUA",
+        "TINTAY",
+        "TORAYA",
+        "YANACA"
+      ],
+      "COTABAMBAS": [
+        "TAMBOBAMBA",
+        "COTABAMBAS",
+        "COYLLURQUI",
+        "HAQUIRA",
+        "MARA",
+        "CHALLHUAHUACHO"
+      ],
+      "CHINCHEROS": [
+        "CHINCHEROS",
+        "ANCO-HUALLO",
+        "COCHARCAS",
+        "HUACCANA",
+        "OCOBAMBA",
+        "ONGOY",
+        "URANMARCA",
+        "RANRACANCHA",
+        "ROCCHACC",
+        "EL PORVENIR",
+        "LOS CHANKAS",
+        "AHUAYRO"
+      ],
+      "GRAU": [
+        "CHUQUIBAMBILLA",
+        "CURPAHUASI",
+        "GAMARRA",
+        "HUAYLLATI",
+        "MAMARA",
+        "MICAELA BASTIDAS",
+        "PATAYPAMPA",
+        "PROGRESO",
+        "SAN ANTONIO",
+        "SANTA ROSA",
+        "TURPAY",
+        "VILCABAMBA",
+        "VIRUNDO",
+        "CURASCO"
+      ]
+    },
+    "AREQUIPA": {
+      "AREQUIPA": [
+        "AREQUIPA",
+        "ALTO SELVA ALEGRE",
+        "CAYMA",
+        "CERRO COLORADO",
+        "CHARACATO",
+        "CHIGUATA",
+        "JACOBO HUNTER",
+        "LA JOYA",
+        "MARIANO MELGAR",
+        "MIRAFLORES",
+        "MOLLEBAYA",
+        "PAUCARPATA",
+        "POCSI",
+        "POLOBAYA",
+        "QUEQUEÑA",
+        "SABANDIA",
+        "SACHACA",
+        "SAN JUAN DE SIGUAS",
+        "SAN JUAN DE TARUCANI",
+        "SANTA ISABEL DE SIGUAS",
+        "SANTA RITA DE SIGUAS",
+        "SOCABAYA",
+        "TIABAYA",
+        "UCHUMAYO",
+        "VITOR",
+        "YANAHUARA",
+        "YARABAMBA",
+        "YURA",
+        "JOSE LUIS BUSTAMANTE Y RIVERO"
+      ],
+      "CAMANA": [
+        "CAMANA",
+        "JOSE MARIA QUIMPER",
+        "MARIANO NICOLAS VALCARCEL",
+        "MARISCAL CACERES",
+        "NICOLAS DE PIEROLA",
+        "OCOÑA",
+        "QUILCA",
+        "SAMUEL PASTOR"
+      ],
+      "CARAVELI": [
+        "CARAVELI",
+        "ACARI",
+        "ATICO",
+        "ATIQUIPA",
+        "BELLA UNION",
+        "CAHUACHO",
+        "CHALA",
+        "CHAPARRA",
+        "HUANUHUANU",
+        "JAQUI",
+        "LOMAS",
+        "QUICACHA",
+        "YAUCA"
+      ],
+      "CASTILLA": [
+        "APLAO",
+        "ANDAGUA",
+        "AYO",
+        "CHACHAS",
+        "CHILCAYMARCA",
+        "CHOCO",
+        "HUANCARQUI",
+        "MACHAGUAY",
+        "ORCOPAMPA",
+        "PAMPACOLCA",
+        "TIPAN",
+        "UÑON",
+        "URACA",
+        "VIRACO"
+      ],
+      "CAYLLOMA": [
+        "CHIVAY",
+        "ACHOMA",
+        "CABANACONDE",
+        "CALLALLI",
+        "CAYLLOMA",
+        "COPORAQUE",
+        "HUAMBO",
+        "HUANCA",
+        "ICHUPAMPA",
+        "LARI",
+        "LLUTA",
+        "MACA",
+        "MADRIGAL",
+        "SAN ANTONIO DE CHUCA",
+        "SIBAYO",
+        "TAPAY",
+        "TISCO",
+        "TUTI",
+        "YANQUE",
+        "MAJES"
+      ],
+      "CONDESUYOS": [
+        "CHUQUIBAMBA",
+        "ANDARAY",
+        "CAYARANI",
+        "CHICHAS",
+        "IRAY",
+        "RIO GRANDE",
+        "SALAMANCA",
+        "YANAQUIHUA"
+      ],
+      "ISLAY": [
+        "MOLLENDO",
+        "COCACHACRA",
+        "DEAN VALDIVIA",
+        "ISLAY",
+        "MEJIA",
+        "PUNTA DE BOMBON"
+      ],
+      "LA UNIÒN": [
+        "COTAHUASI",
+        "ALCA",
+        "CHARCANA",
+        "HUAYNACOTAS",
+        "PAMPAMARCA",
+        "PUYCA",
+        "QUECHUALLA",
+        "SAYLA",
+        "TAURIA",
+        "TOMEPAMPA",
+        "TORO"
+      ]
+    },
+    "AYACUCHO": {
+      "HUAMANGA": [
+        "AYACUCHO",
+        "ACOCRO",
+        "ACOS VINCHOS",
+        "CARMEN ALTO",
+        "CHIARA",
+        "OCROS",
+        "PACAYCASA",
+        "QUINUA",
+        "SAN JOSE DE TICLLAS",
+        "SAN JUAN BAUTISTA",
+        "SANTIAGO DE PISCHA",
+        "SOCOS",
+        "TAMBILLO",
+        "VINCHOS",
+        "JESUS NAZARENO",
+        "ANDRES AVELINO CACERES DORREGARAY"
+      ],
+      "CANGALLO": [
+        "CANGALLO",
+        "CHUSCHI",
+        "LOS MOROCHUCOS",
+        "MARIA PARADO DE BELLIDO",
+        "PARAS",
+        "TOTOS"
+      ],
+      "HUANCA SANCOS": [
+        "SANCOS",
+        "CARAPO",
+        "SACSAMARCA",
+        "SANTIAGO DE LUCANAMARCA"
+      ],
+      "HUANTA": [
+        "HUANTA",
+        "AYAHUANCO",
+        "HUAMANGUILLA",
+        "IGUAIN",
+        "LURICOCHA",
+        "SANTILLANA",
+        "SIVIA",
+        "LLOCHEGUA",
+        "CANAYRE",
+        "UCHURACCAY",
+        "PUCACOLPA",
+        "CHACA",
+        "PUTIS"
+      ],
+      "LA MAR": [
+        "SAN MIGUEL",
+        "ANCO",
+        "AYNA",
+        "CHILCAS",
+        "CHUNGUI",
+        "LUIS CARRANZA",
+        "SANTA ROSA",
+        "TAMBO",
+        "SAMUGARI",
+        "ANCHIHUAY",
+        "ORONCOY",
+        "UNION PROGRESO",
+        "RIO MAGDALENA",
+        "NINABAMBA",
+        "PATIBAMBA"
+      ],
+      "LUCANAS": [
+        "PUQUIO",
+        "AUCARA",
+        "CABANA",
+        "CARMEN SALCEDO",
+        "CHAVIÑA",
+        "CHIPAO",
+        "HUAC-HUAS",
+        "LARAMATE",
+        "LEONCIO PRADO",
+        "LLAUTA",
+        "LUCANAS",
+        "OCAÑA",
+        "OTOCA",
+        "SAISA",
+        "SAN CRISTOBAL",
+        "SAN JUAN",
+        "SAN PEDRO",
+        "SAN PEDRO DE PALCO",
+        "SANCOS",
+        "SANTA ANA DE HUAYCAHUACHO",
+        "SANTA LUCIA"
+      ],
+      "PARINACOCHAS": [
+        "CORACORA",
+        "CHUMPI",
+        "CORONEL CASTAÑEDA",
+        "PACAPAUSA",
+        "PULLO",
+        "PUYUSCA",
+        "SAN FRANCISCO DE RAVACAYCO",
+        "UPAHUACHO"
+      ],
+      "PÀUCAR DEL SARA SARA": [
+        "PAUSA",
+        "COLTA",
+        "CORCULLA",
+        "LAMPA",
+        "MARCABAMBA",
+        "OYOLO",
+        "PARARCA",
+        "SAN JAVIER DE ALPABAMBA",
+        "SAN JOSE DE USHUA",
+        "SARA SARA"
+      ],
+      "SUCRE": [
+        "QUEROBAMBA",
+        "BELEN",
+        "CHALCOS",
+        "CHILCAYOC",
+        "HUACAÑA",
+        "MORCOLLA",
+        "PAICO",
+        "SAN PEDRO DE LARCAY",
+        "SAN SALVADOR DE QUIJE",
+        "SANTIAGO DE PAUCARAY",
+        "SORAS"
+      ],
+      "VICTOR FAJARDO": [
+        "HUANCAPI",
+        "ALCAMENCA",
+        "APONGO",
+        "ASQUIPATA",
+        "CANARIA",
+        "CAYARA",
+        "COLCA",
+        "HUAMANQUIQUIA",
+        "HUANCARAYLLA",
+        "HUAYA",
+        "SARHUA",
+        "VILCANCHOS"
+      ],
+      "VILCAS HUAMAN": [
+        "VILCAS HUAMAN",
+        "ACCOMARCA",
+        "CARHUANCA",
+        "CONCEPCION",
+        "HUAMBALPA",
+        "INDEPENDENCIA",
+        "SAURAMA",
+        "VISCHONGO"
+      ]
+    },
+    "CAJAMARCA": {
+      "CAJAMARCA": [
+        "CAJAMARCA",
+        "ASUNCION",
+        "CHETILLA",
+        "COSPAN",
+        "ENCAÑADA",
+        "JESUS",
+        "LLACANORA",
+        "LOS BAÑOS DEL INCA",
+        "MAGDALENA",
+        "MATARA",
+        "NAMORA",
+        "SAN JUAN"
+      ],
+      "CAJABAMBA": [
+        "CAJABAMBA",
+        "CACHACHI",
+        "CONDEBAMBA",
+        "SITACOCHA"
+      ],
+      "CELENDIN": [
+        "CELENDIN",
+        "CHUMUCH",
+        "CORTEGANA",
+        "HUASMIN",
+        "JORGE CHAVEZ",
+        "JOSE GALVEZ",
+        "MIGUEL IGLESIAS",
+        "OXAMARCA",
+        "SOROCHUCO",
+        "SUCRE",
+        "UTCO",
+        "LA LIBERTAD DE PALLAN"
+      ],
+      "CHOTA": [
+        "CHOTA",
+        "ANGUIA",
+        "CHADIN",
+        "CHIGUIRIP",
+        "CHIMBAN",
+        "CHOROPAMPA",
+        "COCHABAMBA",
+        "CONCHAN",
+        "HUAMBOS",
+        "LAJAS",
+        "LLAMA",
+        "MIRACOSTA",
+        "PACCHA",
+        "PION",
+        "QUEROCOTO",
+        "SAN JUAN DE LICUPIS",
+        "TACABAMBA",
+        "TOCMOCHE",
+        "CHALAMARCA"
+      ],
+      "CONTUMAZA": [
+        "CONTUMAZA",
+        "CHILETE",
+        "CUPISNIQUE",
+        "GUZMANGO",
+        "SAN BENITO",
+        "SANTA CRUZ DE TOLEDO",
+        "TANTARICA",
+        "YONAN"
+      ],
+      "CUTERVO": [
+        "CUTERVO",
+        "CALLAYUC",
+        "CHOROS",
+        "CUJILLO",
+        "LA RAMADA",
+        "PIMPINGOS",
+        "QUEROCOTILLO",
+        "SAN ANDRES DE CUTERVO",
+        "SAN JUAN DE CUTERVO",
+        "SAN LUIS DE LUCMA",
+        "SANTA CRUZ",
+        "SANTO DOMINGO DE LA CAPILLA",
+        "SANTO TOMAS",
+        "SOCOTA",
+        "TORIBIO CASANOVA"
+      ],
+      "HUALGAYOC": [
+        "BAMBAMARCA",
+        "CHUGUR",
+        "HUALGAYOC"
+      ],
+      "JAEN": [
+        "JAEN",
+        "BELLAVISTA",
+        "CHONTALI",
+        "COLASAY",
+        "HUABAL",
+        "LAS PIRIAS",
+        "POMAHUACA",
+        "PUCARA",
+        "SALLIQUE",
+        "SAN FELIPE",
+        "SAN JOSE DEL ALTO",
+        "SANTA ROSA"
+      ],
+      "SAN IGNACIO": [
+        "SAN IGNACIO",
+        "CHIRINOS",
+        "HUARANGO",
+        "LA COIPA",
+        "NAMBALLE",
+        "SAN JOSE DE LOURDES",
+        "TABACONAS"
+      ],
+      "SAN MARCOS": [
+        "PEDRO GALVEZ",
+        "CHANCAY",
+        "EDUARDO VILLANUEVA",
+        "GREGORIO PITA",
+        "ICHOCAN",
+        "JOSE MANUEL QUIROZ",
+        "JOSE SABOGAL"
+      ],
+      "SAN MIGUEL": [
+        "SAN MIGUEL",
+        "BOLIVAR",
+        "CALQUIS",
+        "CATILLUC",
+        "EL PRADO",
+        "LA FLORIDA",
+        "LLAPA",
+        "NANCHOC",
+        "NIEPOS",
+        "SAN GREGORIO",
+        "SAN SILVESTRE DE COCHAN",
+        "TONGOD",
+        "UNION AGUA BLANCA"
+      ],
+      "SAN PABLO": [
+        "SAN PABLO",
+        "SAN BERNARDINO",
+        "SAN LUIS",
+        "TUMBADEN"
+      ],
+      "SANTA CRUZ": [
+        "SANTA CRUZ",
+        "ANDABAMBA",
+        "CATACHE",
+        "CHANCAYBAÑOS",
+        "LA ESPERANZA",
+        "NINABAMBA",
+        "PULAN",
+        "SAUCEPAMPA",
+        "SEXI",
+        "UTICYACU",
+        "YAUYUCAN"
+      ]
+    },
+    "CALLAO": {
+      "CALLAO": [
+        "CALLAO",
+        "BELLAVISTA",
+        "CARMEN DE LA LEGUA REYNOSO",
+        "LA PERLA",
+        "LA PUNTA",
+        "VENTANILLA",
+        "MI PERU"
+      ]
+    },
+    "CUSCO": {
+      "CUSCO": [
+        "CUSCO",
+        "CCORCA",
+        "POROY",
+        "SAN JERONIMO",
+        "SAN SEBASTIAN",
+        "SANTIAGO",
+        "SAYLLA",
+        "WANCHAQ"
+      ],
+      "ACOMAYO": [
+        "ACOMAYO",
+        "ACOPIA",
+        "ACOS",
+        "MOSOC LLACTA",
+        "POMACANCHI",
+        "RONDOCAN",
+        "SANGARARA"
+      ],
+      "ANTA": [
+        "ANTA",
+        "ANCAHUASI",
+        "CACHIMAYO",
+        "CHINCHAYPUJIO",
+        "HUAROCONDO",
+        "LIMATAMBO",
+        "MOLLEPATA",
+        "PUCYURA",
+        "ZURITE"
+      ],
+      "CALCA": [
+        "CALCA",
+        "COYA",
+        "LAMAY",
+        "LARES",
+        "PISAC",
+        "SAN SALVADOR",
+        "TARAY",
+        "YANATILE"
+      ],
+      "CANAS": [
+        "YANAOCA",
+        "CHECCA",
+        "KUNTURKANKI",
+        "LANGUI",
+        "LAYO",
+        "PAMPAMARCA",
+        "QUEHUE",
+        "TUPAC AMARU"
+      ],
+      "CANCHIS": [
+        "SICUANI",
+        "CHECACUPE",
+        "COMBAPATA",
+        "MARANGANI",
+        "PITUMARCA",
+        "SAN PABLO",
+        "SAN PEDRO",
+        "TINTA"
+      ],
+      "CHUMBIVILCAS": [
+        "SANTO TOMAS",
+        "CAPACMARCA",
+        "CHAMACA",
+        "COLQUEMARCA",
+        "LIVITACA",
+        "LLUSCO",
+        "QUIÑOTA",
+        "VELILLE"
+      ],
+      "ESPINAR": [
+        "ESPINAR",
+        "CONDOROMA",
+        "COPORAQUE",
+        "OCORURO",
+        "PALLPATA",
+        "PICHIGUA",
+        "SUYCKUTAMBO",
+        "ALTO PICHIGUA"
+      ],
+      "LA CONVENCION": [
+        "SANTA ANA",
+        "ECHARATE",
+        "HUAYOPATA",
+        "MARANURA",
+        "OCOBAMBA",
+        "QUELLOUNO",
+        "KIMBIRI",
+        "SANTA TERESA",
+        "VILCABAMBA",
+        "PICHARI",
+        "INKAWASI",
+        "VILLA VIRGEN",
+        "VILLA KINTIARINA",
+        "MEGANTONI",
+        "KIMPIRUSHIATO",
+        "CIELO PUNCO",
+        "MANITEA",
+        "UNION ASHANINKA"
+      ],
+      "PARURO": [
+        "PARURO",
+        "ACCHA",
+        "CCAPI",
+        "COLCHA",
+        "HUANOQUITE",
+        "OMACHA",
+        "PACCARITAMBO",
+        "PILLPINTO",
+        "YAURISQUE"
+      ],
+      "PAUCARTAMBO": [
+        "PAUCARTAMBO",
+        "CAICAY",
+        "CHALLABAMBA",
+        "COLQUEPATA",
+        "HUANCARANI",
+        "KOSÑIPATA"
+      ],
+      "QUISPICANCHI": [
+        "URCOS",
+        "ANDAHUAYLILLAS",
+        "CAMANTI",
+        "CCARHUAYO",
+        "CCATCA",
+        "CUSIPATA",
+        "HUARO",
+        "LUCRE",
+        "MARCAPATA",
+        "OCONGATE",
+        "OROPESA",
+        "QUIQUIJANA"
+      ],
+      "URUBAMBA": [
+        "URUBAMBA",
+        "CHINCHERO",
+        "HUAYLLABAMBA",
+        "MACHUPICCHU",
+        "MARAS",
+        "OLLANTAYTAMBO",
+        "YUCAY"
+      ]
+    },
+    "HUANCAVELICA": {
+      "HUANCAVELICA": [
+        "HUANCAVELICA",
+        "ACOBAMBILLA",
+        "ACORIA",
+        "CONAYCA",
+        "CUENCA",
+        "HUACHOCOLPA",
+        "HUAYLLAHUARA",
+        "IZCUCHACA",
+        "LARIA",
+        "MANTA",
+        "MARISCAL CACERES",
+        "MOYA",
+        "NUEVO OCCORO",
+        "PALCA",
+        "PILCHACA",
+        "VILCA",
+        "YAULI",
+        "ASCENSION",
+        "HUANDO"
+      ],
+      "ACOBAMBA": [
+        "ACOBAMBA",
+        "ANDABAMBA",
+        "ANTA",
+        "CAJA",
+        "MARCAS",
+        "PAUCARA",
+        "POMACOCHA",
+        "ROSARIO"
+      ],
+      "ANGARAES": [
+        "LIRCAY",
+        "ANCHONGA",
+        "CALLANMARCA",
+        "CCOCHACCASA",
+        "CHINCHO",
+        "CONGALLA",
+        "HUANCA-HUANCA",
+        "HUAYLLAY GRANDE",
+        "JULCAMARCA",
+        "SAN ANTONIO DE ANTAPARCO",
+        "SANTO TOMAS DE PATA",
+        "SECCLLA"
+      ],
+      "CASTROVIRREYNA": [
+        "CASTROVIRREYNA",
+        "ARMA",
+        "AURAHUA",
+        "CAPILLAS",
+        "CHUPAMARCA",
+        "COCAS",
+        "HUACHOS",
+        "HUAMATAMBO",
+        "MOLLEPAMPA",
+        "SAN JUAN",
+        "SANTA ANA",
+        "TANTARA",
+        "TICRAPO"
+      ],
+      "CHURCAMPA": [
+        "CHURCAMPA",
+        "ANCO",
+        "CHINCHIHUASI",
+        "EL CARMEN",
+        "LA MERCED",
+        "LOCROJA",
+        "PAUCARBAMBA",
+        "SAN MIGUEL DE MAYOCC",
+        "SAN PEDRO DE CORIS",
+        "PACHAMARCA",
+        "COSME"
+      ],
+      "HUAYTARA": [
+        "HUAYTARA",
+        "AYAVI",
+        "CORDOVA",
+        "HUAYACUNDO ARMA",
+        "LARAMARCA",
+        "OCOYO",
+        "PILPICHACA",
+        "QUERCO",
+        "QUITO-ARMA",
+        "SAN ANTONIO DE CUSICANCHA",
+        "SAN FRANCISCO DE SANGAYAICO",
+        "SAN ISIDRO",
+        "SANTIAGO DE CHOCORVOS",
+        "SANTIAGO DE QUIRAHUARA",
+        "SANTO DOMINGO DE CAPILLAS",
+        "TAMBO"
+      ],
+      "TAYACAJA": [
+        "PAMPAS",
+        "ACOSTAMBO",
+        "ACRAQUIA",
+        "AHUAYCHA",
+        "COLCABAMBA",
+        "DANIEL HERNANDEZ",
+        "HUACHOCOLPA",
+        "HUARIBAMBA",
+        "ÑAHUIMPUQUIO",
+        "PAZOS",
+        "QUISHUAR",
+        "SALCABAMBA",
+        "SALCAHUASI",
+        "SAN MARCOS DE ROCCHAC",
+        "SURCUBAMBA",
+        "TINTAY PUNCU",
+        "QUICHUAS",
+        "ANDAYMARCA",
+        "ROBLE",
+        "PICHOS",
+        "SANTIAGO DE TUCUMA",
+        "LAMBRAS",
+        "COCHABAMBA"
+      ]
+    },
+    "HUANUCO": {
+      "HUANUCO": [
+        "HUANUCO",
+        "AMARILIS",
+        "CHINCHAO",
+        "CHURUBAMBA",
+        "MARGOS",
+        "QUISQUI",
+        "SAN FRANCISCO DE CAYRAN",
+        "SAN PEDRO DE CHAULAN",
+        "SANTA MARIA DEL VALLE",
+        "YARUMAYO",
+        "PILLCO MARCA",
+        "YACUS",
+        "SAN PABLO DE PILLAO"
+      ],
+      "AMBO": [
+        "AMBO",
+        "CAYNA",
+        "COLPAS",
+        "CONCHAMARCA",
+        "HUACAR",
+        "SAN FRANCISCO",
+        "SAN RAFAEL",
+        "TOMAY KICHWA"
+      ],
+      "DOS DE MAYO": [
+        "LA UNION",
+        "CHUQUIS",
+        "MARIAS",
+        "PACHAS",
+        "QUIVILLA",
+        "RIPAN",
+        "SHUNQUI",
+        "SILLAPATA",
+        "YANAS"
+      ],
+      "HUACAYBAMBA": [
+        "HUACAYBAMBA",
+        "CANCHABAMBA",
+        "COCHABAMBA",
+        "PINRA"
+      ],
+      "HUAMALIES": [
+        "LLATA",
+        "ARANCAY",
+        "CHAVIN DE PARIARCA",
+        "JACAS GRANDE",
+        "JIRCAN",
+        "MIRAFLORES",
+        "MONZON",
+        "PUNCHAO",
+        "PUÑOS",
+        "SINGA",
+        "TANTAMAYO"
+      ],
+      "LEONCIO PRADO": [
+        "RUPA-RUPA",
+        "DANIEL ALOMIA ROBLES",
+        "HERMILIO VALDIZAN",
+        "JOSE CRESPO Y CASTILLO",
+        "LUYANDO",
+        "MARIANO DAMASO BERAUN",
+        "PUCAYACU",
+        "CASTILLO GRANDE",
+        "PUEBLO NUEVO",
+        "SANTO DOMINGO DE ANDA"
+      ],
+      "MARAÑON": [
+        "HUACRACHUCO",
+        "CHOLON",
+        "SAN BUENAVENTURA",
+        "LA MORADA",
+        "SANTA ROSA DE ALTO YANAJANCA"
+      ],
+      "PACHITEA": [
+        "PANAO",
+        "CHAGLLA",
+        "MOLINO",
+        "UMARI"
+      ],
+      "PUERTO INCA": [
+        "PUERTO INCA",
+        "CODO DEL POZUZO",
+        "HONORIA",
+        "TOURNAVISTA",
+        "YUYAPICHIS"
+      ],
+      "LAURICOCHA": [
+        "JESUS",
+        "BAÑOS",
+        "JIVIA",
+        "QUEROPALCA",
+        "RONDOS",
+        "SAN FRANCISCO DE ASIS",
+        "SAN MIGUEL DE CAURI"
+      ],
+      "YAROWILCA": [
+        "CHAVINILLO",
+        "CAHUAC",
+        "CHACABAMBA",
+        "APARICIO POMARES",
+        "JACAS CHICO",
+        "OBAS",
+        "PAMPAMARCA",
+        "CHORAS"
+      ]
+    },
+    "ICA": {
+      "ICA": [
+        "ICA",
+        "LA TINGUIÑA",
+        "LOS AQUIJES",
+        "OCUCAJE",
+        "PACHACUTEC",
+        "PARCONA",
+        "PUEBLO NUEVO",
+        "SALAS",
+        "SAN JOSE DE LOS MOLINOS",
+        "SAN JUAN BAUTISTA",
+        "SANTIAGO",
+        "SUBTANJALLA",
+        "TATE",
+        "YAUCA DEL ROSARIO"
+      ],
+      "CHINCHA": [
+        "CHINCHA ALTA",
+        "ALTO LARAN",
+        "CHAVIN",
+        "CHINCHA BAJA",
+        "EL CARMEN",
+        "GROCIO PRADO",
+        "PUEBLO NUEVO",
+        "SAN JUAN DE YANAC",
+        "SAN PEDRO DE HUACARPANA",
+        "SUNAMPE",
+        "TAMBO DE MORA"
+      ],
+      "NAZCA": [
+        "NASCA",
+        "CHANGUILLO",
+        "EL INGENIO",
+        "MARCONA",
+        "VISTA ALEGRE"
+      ],
+      "PALPA": [
+        "PALPA",
+        "LLIPATA",
+        "RIO GRANDE",
+        "SANTA CRUZ",
+        "TIBILLO"
+      ],
+      "PISCO": [
+        "PISCO",
+        "HUANCANO",
+        "HUMAY",
+        "INDEPENDENCIA",
+        "PARACAS",
+        "SAN ANDRES",
+        "SAN CLEMENTE",
+        "TUPAC AMARU INCA"
+      ]
+    },
+    "JUNIN": {
+      "HUANCAYO": [
+        "HUANCAYO",
+        "CARHUACALLANGA",
+        "CHACAPAMPA",
+        "CHICCHE",
+        "CHILCA",
+        "CHONGOS ALTO",
+        "CHUPURO",
+        "COLCA",
+        "CULLHUAS",
+        "EL TAMBO",
+        "HUACRAPUQUIO",
+        "HUALHUAS",
+        "HUANCAN",
+        "HUASICANCHA",
+        "HUAYUCACHI",
+        "INGENIO",
+        "PARIAHUANCA",
+        "PILCOMAYO",
+        "PUCARA",
+        "QUICHUAY",
+        "QUILCAS",
+        "SAN AGUSTIN",
+        "SAN JERONIMO DE TUNAN",
+        "SAÑO",
+        "SAPALLANGA",
+        "SICAYA",
+        "SANTO DOMINGO DE ACOBAMBA",
+        "VIQUES"
+      ],
+      "CONCEPCION": [
+        "CONCEPCION",
+        "ACO",
+        "ANDAMARCA",
+        "CHAMBARA",
+        "COCHAS",
+        "COMAS",
+        "HEROINAS TOLEDO",
+        "MANZANARES",
+        "MARISCAL CASTILLA",
+        "MATAHUASI",
+        "MITO",
+        "NUEVE DE JULIO",
+        "ORCOTUNA",
+        "SAN JOSE DE QUERO",
+        "SANTA ROSA DE OCOPA"
+      ],
+      "CHANCHAMAYO": [
+        "CHANCHAMAYO",
+        "PERENE",
+        "PICHANAQUI",
+        "SAN LUIS DE SHUARO",
+        "SAN RAMON",
+        "VITOC"
+      ],
+      "JAUJA": [
+        "JAUJA",
+        "ACOLLA",
+        "APATA",
+        "ATAURA",
+        "CANCHAYLLO",
+        "CURICACA",
+        "EL MANTARO",
+        "HUAMALI",
+        "HUARIPAMPA",
+        "HUERTAS",
+        "JANJAILLO",
+        "JULCAN",
+        "LEONOR ORDOÑEZ",
+        "LLOCLLAPAMPA",
+        "MARCO",
+        "MASMA",
+        "MASMA CHICCHE",
+        "MOLINOS",
+        "MONOBAMBA",
+        "MUQUI",
+        "MUQUIYAUYO",
+        "PACA",
+        "PACCHA",
+        "PANCAN",
+        "PARCO",
+        "POMACANCHA",
+        "RICRAN",
+        "SAN LORENZO",
+        "SAN PEDRO DE CHUNAN",
+        "SAUSA",
+        "SINCOS",
+        "TUNAN MARCA",
+        "YAULI",
+        "YAUYOS"
+      ],
+      "JUNIN": [
+        "JUNIN",
+        "CARHUAMAYO",
+        "ONDORES",
+        "ULCUMAYO"
+      ],
+      "SATIPO": [
+        "SATIPO",
+        "COVIRIALI",
+        "LLAYLLA",
+        "MAZAMARI",
+        "PAMPA HERMOSA",
+        "PANGOA",
+        "RIO NEGRO",
+        "RIO TAMBO",
+        "VIZCATAN DEL ENE"
+      ],
+      "TARMA": [
+        "TARMA",
+        "ACOBAMBA",
+        "HUARICOLCA",
+        "HUASAHUASI",
+        "LA UNION",
+        "PALCA",
+        "PALCAMAYO",
+        "SAN PEDRO DE CAJAS",
+        "TAPO"
+      ],
+      "YAULI": [
+        "LA OROYA",
+        "CHACAPALPA",
+        "HUAY-HUAY",
+        "MARCAPOMACOCHA",
+        "MOROCOCHA",
+        "PACCHA",
+        "SANTA BARBARA DE CARHUACAYA",
+        "SANTA ROSA DE SACCO",
+        "SUITUCANCHA",
+        "YAULI"
+      ],
+      "CHUPACA": [
+        "CHUPACA",
+        "AHUAC",
+        "CHONGOS BAJO",
+        "HUACHAC",
+        "HUAMANCACA CHICO",
+        "SAN JUAN DE ISCOS",
+        "SAN JUAN DE JARPA",
+        "TRES DE DICIEMBRE",
+        "YANACANCHA"
+      ]
+    },
+    "LA LIBERTAD": {
+      "TRUJILLO": [
+        "TRUJILLO",
+        "EL PORVENIR",
+        "FLORENCIA DE MORA",
+        "HUANCHACO",
+        "LA ESPERANZA",
+        "LAREDO",
+        "MOCHE",
+        "POROTO",
+        "SALAVERRY",
+        "SIMBAL",
+        "VICTOR LARCO HERRERA"
+      ],
+      "ASCOPE": [
+        "ASCOPE",
+        "CHICAMA",
+        "CHOCOPE",
+        "MAGDALENA DE CAO",
+        "PAIJAN",
+        "RAZURI",
+        "SANTIAGO DE CAO",
+        "CASA GRANDE"
+      ],
+      "BOLIVAR": [
+        "BOLIVAR",
+        "BAMBAMARCA",
+        "CONDORMARCA",
+        "LONGOTEA",
+        "UCHUMARCA",
+        "UCUNCHA"
+      ],
+      "CHEPEN": [
+        "CHEPEN",
+        "PACANGA",
+        "PUEBLO NUEVO"
+      ],
+      "JULCAN": [
+        "JULCAN",
+        "CALAMARCA",
+        "CARABAMBA",
+        "HUASO"
+      ],
+      "OTUZCO": [
+        "OTUZCO",
+        "AGALLPAMPA",
+        "CHARAT",
+        "HUARANCHAL",
+        "LA CUESTA",
+        "MACHE",
+        "PARANDAY",
+        "SALPO",
+        "SINSICAP",
+        "USQUIL"
+      ],
+      "PACASMAYO": [
+        "SAN PEDRO DE LLOC",
+        "GUADALUPE",
+        "JEQUETEPEQUE",
+        "PACASMAYO",
+        "SAN JOSE"
+      ],
+      "PATAZ": [
+        "TAYABAMBA",
+        "BULDIBUYO",
+        "CHILLIA",
+        "HUANCASPATA",
+        "HUAYLILLAS",
+        "HUAYO",
+        "ONGON",
+        "PARCOY",
+        "PATAZ",
+        "PIAS",
+        "SANTIAGO DE CHALLAS",
+        "TAURIJA",
+        "URPAY"
+      ],
+      "SANCHEZ CARRION": [
+        "HUAMACHUCO",
+        "CHUGAY",
+        "COCHORCO",
+        "CURGOS",
+        "MARCABAL",
+        "SANAGORAN",
+        "SARIN",
+        "SARTIMBAMBA"
+      ],
+      "SANTIAGO DE CHUCO": [
+        "SANTIAGO DE CHUCO",
+        "ANGASMARCA",
+        "CACHICADAN",
+        "MOLLEBAMBA",
+        "MOLLEPATA",
+        "QUIRUVILCA",
+        "SANTA CRUZ DE CHUCA",
+        "SITABAMBA"
+      ],
+      "GRAN CHIMU": [
+        "CASCAS",
+        "LUCMA",
+        "MARMOT",
+        "SAYAPULLO"
+      ],
+      "VIRU": [
+        "VIRU",
+        "CHAO",
+        "GUADALUPITO"
+      ]
+    },
+    "LAMBAYEQUE": {
+      "CHICLAYO": [
+        "CHICLAYO",
+        "CHONGOYAPE",
+        "ETEN",
+        "ETEN PUERTO",
+        "JOSE LEONARDO ORTIZ",
+        "LA VICTORIA",
+        "LAGUNAS",
+        "MONSEFU",
+        "NUEVA ARICA",
+        "OYOTUN",
+        "PICSI",
+        "PIMENTEL",
+        "REQUE",
+        "SANTA ROSA",
+        "SAÑA",
+        "CAYALTI",
+        "PATAPO",
+        "POMALCA",
+        "PUCALA",
+        "TUMAN"
+      ],
+      "FERREÑAFE": [
+        "FERREÑAFE",
+        "CAÑARIS",
+        "INCAHUASI",
+        "MANUEL ANTONIO MESONES MURO",
+        "PITIPO",
+        "PUEBLO NUEVO"
+      ],
+      "LAMBAYEQUE": [
+        "LAMBAYEQUE",
+        "CHOCHOPE",
+        "ILLIMO",
+        "JAYANCA",
+        "MOCHUMI",
+        "MORROPE",
+        "MOTUPE",
+        "OLMOS",
+        "PACORA",
+        "SALAS",
+        "SAN JOSE",
+        "TUCUME"
+      ]
+    },
+    "LIMA METROPOLITANA": {
+      "LIMA": [
+        "LIMA",
+        "ANCON",
+        "ATE",
+        "BARRANCO",
+        "BREÑA",
+        "CARABAYLLO",
+        "CHACLACAYO",
+        "CHORRILLOS",
+        "CIENEGUILLA",
+        "COMAS",
+        "EL AGUSTINO",
+        "INDEPENDENCIA",
+        "JESUS MARIA",
+        "LA MOLINA",
+        "LA VICTORIA",
+        "LINCE",
+        "LOS OLIVOS",
+        "LURIGANCHO",
+        "LURIN",
+        "MAGDALENA DEL MAR",
+        "MAGDALENA VIEJA",
+        "MIRAFLORES",
+        "PACHACAMAC",
+        "PUCUSANA",
+        "PUENTE PIEDRA",
+        "PUNTA HERMOSA",
+        "PUNTA NEGRA",
+        "RIMAC",
+        "SAN BARTOLO",
+        "SAN BORJA",
+        "SAN ISIDRO",
+        "SAN JUAN DE LURIGANCHO",
+        "SAN JUAN DE MIRAFLORES",
+        "SAN LUIS",
+        "SAN MARTIN DE PORRES",
+        "SAN MIGUEL",
+        "SANTA ANITA",
+        "SANTA MARIA DEL MAR",
+        "SANTA ROSA",
+        "SANTIAGO DE SURCO",
+        "SURQUILLO",
+        "VILLA EL SALVADOR",
+        "VILLA MARIA DEL TRIUNFO"
+      ]
+    },
+    "REGION LIMA": {
+      "BARRANCA": [
+        "BARRANCA",
+        "PARAMONGA",
+        "PATIVILCA",
+        "SUPE",
+        "SUPE PUERTO"
+      ],
+      "CAJATAMBO": [
+        "CAJATAMBO",
+        "COPA",
+        "GORGOR",
+        "HUANCAPON",
+        "MANAS"
+      ],
+      "CANTA": [
+        "CANTA",
+        "ARAHUAY",
+        "HUAMANTANGA",
+        "HUAROS",
+        "LACHAQUI",
+        "SAN BUENAVENTURA",
+        "SANTA ROSA DE QUIVES"
+      ],
+      "CAÑETE": [
+        "SAN VICENTE DE CAÑETE",
+        "ASIA",
+        "CALANGO",
+        "CERRO AZUL",
+        "CHILCA",
+        "COAYLLO",
+        "IMPERIAL",
+        "LUNAHUANA",
+        "MALA",
+        "NUEVO IMPERIAL",
+        "PACARAN",
+        "QUILMANA",
+        "SAN ANTONIO",
+        "SAN LUIS",
+        "SANTA CRUZ DE FLORES",
+        "ZUÑIGA"
+      ],
+      "HUARAL": [
+        "HUARAL",
+        "ATAVILLOS ALTO",
+        "ATAVILLOS BAJO",
+        "AUCALLAMA",
+        "CHANCAY",
+        "IHUARI",
+        "LAMPIAN",
+        "PACARAOS",
+        "SAN MIGUEL DE ACOS",
+        "SANTA CRUZ DE ANDAMARCA",
+        "SUMBILCA",
+        "VEINTISIETE DE NOVIEMBRE"
+      ],
+      "HUAROCHIRI": [
+        "MATUCANA",
+        "ANTIOQUIA",
+        "CALLAHUANCA",
+        "CARAMPOMA",
+        "CHICLA",
+        "CUENCA",
+        "HUACHUPAMPA",
+        "HUANZA",
+        "HUAROCHIRI",
+        "LAHUAYTAMBO",
+        "LANGA",
+        "LARAOS",
+        "MARIATANA",
+        "RICARDO PALMA",
+        "SAN ANDRES DE TUPICOCHA",
+        "SAN ANTONIO",
+        "SAN BARTOLOME",
+        "SAN DAMIAN",
+        "SAN JUAN DE IRIS",
+        "SAN JUAN DE TANTARANCHE",
+        "SAN LORENZO DE QUINTI",
+        "SAN MATEO",
+        "SAN MATEO DE OTAO",
+        "SAN PEDRO DE CASTA",
+        "SAN PEDRO DE HUANCAYRE",
+        "SANGALLAYA",
+        "SANTA CRUZ DE COCACHACRA",
+        "SANTA EULALIA",
+        "SANTIAGO DE ANCHUCAYA",
+        "SANTIAGO DE TUNA",
+        "SANTO DOMINGO DE LOS OLLERO",
+        "SURCO"
+      ],
+      "HUAURA": [
+        "HUACHO",
+        "AMBAR",
+        "CALETA DE CARQUIN",
+        "CHECRAS",
+        "HUALMAY",
+        "HUAURA",
+        "LEONCIO PRADO",
+        "PACCHO",
+        "SANTA LEONOR",
+        "SANTA MARIA",
+        "SAYAN",
+        "VEGUETA"
+      ],
+      "OYON": [
+        "OYON",
+        "ANDAJES",
+        "CAUJUL",
+        "COCHAMARCA",
+        "NAVAN",
+        "PACHANGARA"
+      ],
+      "YAUYOS": [
+        "YAUYOS",
+        "ALIS",
+        "AYAUCA",
+        "AYAVIRI",
+        "AZANGARO",
+        "CACRA",
+        "CARANIA",
+        "CATAHUASI",
+        "CHOCOS",
+        "COCHAS",
+        "COLONIA",
+        "HONGOS",
+        "HUAMPARA",
+        "HUANCAYA",
+        "HUANGASCAR",
+        "HUANTAN",
+        "HUAÑEC",
+        "LARAOS",
+        "LINCHA",
+        "MADEAN",
+        "MIRAFLORES",
+        "OMAS",
+        "PUTINZA",
+        "QUINCHES",
+        "QUINOCAY",
+        "SAN JOAQUIN",
+        "SAN PEDRO DE PILAS",
+        "TANTA",
+        "TAURIPAMPA",
+        "TOMAS",
+        "TUPE",
+        "VIÑAC",
+        "VITIS"
+      ]
+    },
+    "LORETO": {
+      "MAYNAS": [
+        "IQUITOS",
+        "ALTO NANAY",
+        "FERNANDO LORES",
+        "INDIANA",
+        "LAS AMAZONAS",
+        "MAZAN",
+        "NAPO",
+        "PUNCHANA",
+        "TORRES CAUSANA",
+        "BELEN",
+        "SAN JUAN BAUTISTA"
+      ],
+      "ALTO AMAZONAS": [
+        "YURIMAGUAS",
+        "BALSAPUERTO",
+        "JEBEROS",
+        "LAGUNAS",
+        "SANTA CRUZ",
+        "TENIENTE CESAR LOPEZ ROJAS"
+      ],
+      "LORETO": [
+        "NAUTA",
+        "PARINARI",
+        "TIGRE",
+        "TROMPETEROS",
+        "URARINAS"
+      ],
+      "MARISCAL RAMON CASTILLA": [
+        "RAMON CASTILLA",
+        "PEBAS",
+        "YAVARI",
+        "SAN PABLO"
+      ],
+      "REQUENA": [
+        "REQUENA",
+        "ALTO TAPICHE",
+        "CAPELO",
+        "EMILIO SAN MARTIN",
+        "MAQUIA",
+        "PUINAHUA",
+        "SAQUENA",
+        "SOPLIN",
+        "TAPICHE",
+        "JENARO HERRERA",
+        "YAQUERANA"
+      ],
+      "UCAYALI": [
+        "CONTAMANA",
+        "INAHUAYA",
+        "PADRE MARQUEZ",
+        "PAMPA HERMOSA",
+        "SARAYACU",
+        "VARGAS GUERRA"
+      ],
+      "DATEM DEL MARAÑON": [
+        "BARRANCA",
+        "CAHUAPANAS",
+        "MANSERICHE",
+        "MORONA",
+        "PASTAZA",
+        "ANDOAS"
+      ],
+      "PUTUMAYO": [
+        "PUTUMAYO",
+        "ROSA PANDURO",
+        "TENIENTE MANUEL CLAVERO",
+        "YAGUAS"
+      ]
+    },
+    "MADRE DE DIOS": {
+      "TAMBOPATA": [
+        "TAMBOPATA",
+        "INAMBARI",
+        "LAS PIEDRAS",
+        "LABERINTO"
+      ],
+      "MANU": [
+        "MANU",
+        "FITZCARRALD",
+        "MADRE DE DIOS",
+        "HUEPETUHE"
+      ],
+      "TAHUAMANU": [
+        "IÑAPARI",
+        "IBERIA",
+        "TAHUAMANU"
+      ]
+    },
+    "MOQUEGUA": {
+      "MARISCAL NIETO": [
+        "MOQUEGUA",
+        "CARUMAS",
+        "CUCHUMBAYA",
+        "SAMEGUA",
+        "SAN CRISTOBAL",
+        "TORATA",
+        "SAN ANTONIO"
+      ],
+      "GENERAL SANCHEZ CERRO": [
+        "OMATE",
+        "CHOJATA",
+        "COALAQUE",
+        "ICHUÑA",
+        "LA CAPILLA",
+        "LLOQUE",
+        "MATALAQUE",
+        "PUQUINA",
+        "QUINISTAQUILLAS",
+        "UBINAS",
+        "YUNGA"
+      ],
+      "ILO": [
+        "ILO",
+        "EL ALGARROBAL",
+        "PACOCHA"
+      ]
+    },
+    "PASCO": {
+      "PASCO": [
+        "CHAUPIMARCA",
+        "HUACHON",
+        "HUARIACA",
+        "HUAYLLAY",
+        "NINACACA",
+        "PALLANCHACRA",
+        "PAUCARTAMBO",
+        "SAN FCO.DE ASIS DE YARUSYAC",
+        "SIMON BOLIVAR",
+        "TICLACAYAN",
+        "TINYAHUARCO",
+        "VICCO",
+        "YANACANCHA"
+      ],
+      "DANIEL ALCIDES CARRION": [
+        "YANAHUANCA",
+        "CHACAYAN",
+        "GOYLLARISQUIZGA",
+        "PAUCAR",
+        "SAN PEDRO DE PILLAO",
+        "SANTA ANA DE TUSI",
+        "TAPUC",
+        "VILCABAMBA"
+      ],
+      "OXAPAMPA": [
+        "OXAPAMPA",
+        "CHONTABAMBA",
+        "HUANCABAMBA",
+        "PALCAZU",
+        "POZUZO",
+        "PUERTO BERMUDEZ",
+        "VILLA RICA",
+        "CONSTITUCION"
+      ]
+    },
+    "PIURA": {
+      "PIURA": [
+        "PIURA",
+        "CASTILLA",
+        "CATACAOS",
+        "CURA MORI",
+        "EL TALLAN",
+        "LA ARENA",
+        "LA UNION",
+        "LAS LOMAS",
+        "TAMBO GRANDE",
+        "VEINTISEIS DE OCTUBRE"
+      ],
+      "AYABACA": [
+        "AYABACA",
+        "FRIAS",
+        "JILILI",
+        "LAGUNAS",
+        "MONTERO",
+        "PACAIPAMPA",
+        "PAIMAS",
+        "SAPILLICA",
+        "SICCHEZ",
+        "SUYO"
+      ],
+      "HUANCABAMBA": [
+        "HUANCABAMBA",
+        "CANCHAQUE",
+        "EL CARMEN DE LA FRONTERA",
+        "HUARMACA",
+        "LALAQUIZ",
+        "SAN MIGUEL DE EL FAIQUE",
+        "SONDOR",
+        "SONDORILLO"
+      ],
+      "MORROPON": [
+        "CHULUCANAS",
+        "BUENOS AIRES",
+        "CHALACO",
+        "LA MATANZA",
+        "MORROPON",
+        "SALITRAL",
+        "SAN JUAN DE BIGOTE",
+        "SANTA CATALINA DE MOSSA",
+        "SANTO DOMINGO",
+        "YAMANGO"
+      ],
+      "PAITA": [
+        "PAITA",
+        "AMOTAPE",
+        "ARENAL",
+        "COLAN",
+        "LA HUACA",
+        "TAMARINDO",
+        "VICHAYAL"
+      ],
+      "SULLANA": [
+        "SULLANA",
+        "BELLAVISTA",
+        "IGNACIO ESCUDERO",
+        "LANCONES",
+        "MARCAVELICA",
+        "MIGUEL CHECA",
+        "QUERECOTILLO",
+        "SALITRAL"
+      ],
+      "TALARA": [
+        "PARIÑAS",
+        "EL ALTO",
+        "LA BREA",
+        "LOBITOS",
+        "LOS ORGANOS",
+        "MANCORA"
+      ],
+      "SECHURA": [
+        "SECHURA",
+        "BELLAVISTA DE LA UNION",
+        "BERNAL",
+        "CRISTO NOS VALGA",
+        "VICE",
+        "RINCONADA LLICUAR"
+      ]
+    },
+    "PUNO": {
+      "PUNO": [
+        "PUNO",
+        "ACORA",
+        "AMANTANI",
+        "ATUNCOLLA",
+        "CAPACHICA",
+        "CHUCUITO",
+        "COATA",
+        "HUATA",
+        "MAÑAZO",
+        "PAUCARCOLLA",
+        "PICHACANI",
+        "PLATERIA",
+        "SAN ANTONIO",
+        "TIQUILLACA",
+        "VILQUE"
+      ],
+      "AZANGARO": [
+        "AZANGARO",
+        "ACHAYA",
+        "ARAPA",
+        "ASILLO",
+        "CAMINACA",
+        "CHUPA",
+        "JOSE DOMINGO CHOQUEHUANCA",
+        "MUÑANI",
+        "POTONI",
+        "SAMAN",
+        "SAN ANTON",
+        "SAN JOSE",
+        "SAN JUAN DE SALINAS",
+        "SANTIAGO DE PUPUJA",
+        "TIRAPATA"
+      ],
+      "CARABAYA": [
+        "MACUSANI",
+        "AJOYANI",
+        "AYAPATA",
+        "COASA",
+        "CORANI",
+        "CRUCERO",
+        "ITUATA",
+        "OLLACHEA",
+        "SAN GABAN",
+        "USICAYOS"
+      ],
+      "CHUCUITO": [
+        "JULI",
+        "DESAGUADERO",
+        "HUACULLANI",
+        "KELLUYO",
+        "PISACOMA",
+        "POMATA",
+        "ZEPITA"
+      ],
+      "EL COLLAO": [
+        "ILAVE",
+        "CAPAZO",
+        "PILCUYO",
+        "SANTA ROSA",
+        "CONDURIRI"
+      ],
+      "HUANCANE": [
+        "HUANCANE",
+        "COJATA",
+        "HUATASANI",
+        "INCHUPALLA",
+        "PUSI",
+        "ROSASPATA",
+        "TARACO",
+        "VILQUE CHICO"
+      ],
+      "LAMPA": [
+        "LAMPA",
+        "CABANILLA",
+        "CALAPUJA",
+        "NICASIO",
+        "OCUVIRI",
+        "PALCA",
+        "PARATIA",
+        "PUCARA",
+        "SANTA LUCIA",
+        "VILAVILA"
+      ],
+      "MELGAR": [
+        "AYAVIRI",
+        "ANTAUTA",
+        "CUPI",
+        "LLALLI",
+        "MACARI",
+        "NUÑOA",
+        "ORURILLO",
+        "SANTA ROSA",
+        "UMACHIRI"
+      ],
+      "MOHO": [
+        "MOHO",
+        "CONIMA",
+        "HUAYRAPATA",
+        "TILALI"
+      ],
+      "SAN ANTONIO DE PUTINA": [
+        "PUTINA",
+        "ANANEA",
+        "PEDRO VILCA APAZA",
+        "QUILCAPUNCU",
+        "SINA"
+      ],
+      "SAN ROMAN": [
+        "JULIACA",
+        "CABANA",
+        "CABANILLAS",
+        "CARACOTO",
+        "SAN MIGUEL"
+      ],
+      "SANDIA": [
+        "SANDIA",
+        "CUYOCUYO",
+        "LIMBANI",
+        "PATAMBUCO",
+        "PHARA",
+        "QUIACA",
+        "SAN JUAN DEL ORO",
+        "YANAHUAYA",
+        "ALTO INAMBARI",
+        "SAN PEDRO DE PUTINA PUNCU"
+      ],
+      "YUNGUYO": [
+        "YUNGUYO",
+        "ANAPIA",
+        "COPANI",
+        "CUTURAPI",
+        "OLLARAYA",
+        "TINICACHI",
+        "UNICACHI"
+      ]
+    },
+    "SAN MARTIN": {
+      "MOYOBAMBA": [
+        "MOYOBAMBA",
+        "CALZADA",
+        "HABANA",
+        "JEPELACIO",
+        "SORITOR",
+        "YANTALO"
+      ],
+      "BELLAVISTA": [
+        "BELLAVISTA",
+        "ALTO BIAVO",
+        "BAJO BIAVO",
+        "HUALLAGA",
+        "SAN PABLO",
+        "SAN RAFAEL"
+      ],
+      "EL DORADO": [
+        "SAN JOSE DE SISA",
+        "AGUA BLANCA",
+        "SAN MARTIN",
+        "SANTA ROSA",
+        "SHATOJA"
+      ],
+      "HUALLAGA": [
+        "SAPOSOA",
+        "ALTO SAPOSOA",
+        "EL ESLABON",
+        "PISCOYACU",
+        "SACANCHE",
+        "TINGO DE SAPOSOA"
+      ],
+      "LAMAS": [
+        "LAMAS",
+        "ALONSO DE ALVARADO",
+        "BARRANQUITA",
+        "CAYNARACHI",
+        "CUÑUMBUQUI",
+        "PINTO RECODO",
+        "RUMISAPA",
+        "SAN ROQUE DE CUMBAZA",
+        "SHANAO",
+        "TABALOSOS",
+        "ZAPATERO"
+      ],
+      "MARISCAL CACERES": [
+        "JUANJUI",
+        "CAMPANILLA",
+        "HUICUNGO",
+        "PACHIZA",
+        "PAJARILLO"
+      ],
+      "PICOTA": [
+        "PICOTA",
+        "BUENOS AIRES",
+        "CASPISAPA",
+        "PILLUANA",
+        "PUCACACA",
+        "SAN CRISTOBAL",
+        "SAN HILARION",
+        "SHAMBOYACU",
+        "TINGO DE PONASA",
+        "TRES UNIDOS"
+      ],
+      "RIOJA": [
+        "RIOJA",
+        "AWAJUN",
+        "ELIAS SOPLIN VARGAS",
+        "NUEVA CAJAMARCA",
+        "PARDO MIGUEL",
+        "POSIC",
+        "SAN FERNANDO",
+        "YORONGOS",
+        "YURACYACU"
+      ],
+      "SAN MARTIN": [
+        "TARAPOTO",
+        "ALBERTO LEVEAU",
+        "CACATACHI",
+        "CHAZUTA",
+        "CHIPURANA",
+        "EL PORVENIR",
+        "HUIMBAYOC",
+        "JUAN GUERRA",
+        "LA BANDA DE SHILCAYO",
+        "MORALES",
+        "PAPAPLAYA",
+        "SAN ANTONIO",
+        "SAUCE",
+        "SHAPAJA"
+      ],
+      "TOCACHE": [
+        "TOCACHE",
+        "NUEVO PROGRESO",
+        "POLVORA",
+        "SHUNTE",
+        "UCHIZA",
+        "SANTA LUCIA"
+      ]
+    },
+    "TACNA": {
+      "TACNA": [
+        "TACNA",
+        "ALTO DE LA ALIANZA",
+        "CALANA",
+        "CIUDAD NUEVA",
+        "INCLAN",
+        "PACHIA",
+        "PALCA",
+        "POCOLLAY",
+        "SAMA",
+        "CRNEL.GREGORIO ALBARRACIN LANCHIPA",
+        "LA YARADA LOS PALOS"
+      ],
+      "CANDARAVE": [
+        "CANDARAVE",
+        "CAIRANI",
+        "CAMILACA",
+        "CURIBAYA",
+        "HUANUARA",
+        "QUILAHUANI"
+      ],
+      "JORGE BASADRE": [
+        "LOCUMBA",
+        "ILABAYA",
+        "ITE"
+      ],
+      "TARATA": [
+        "TARATA",
+        "HEROES ALBARRACIN",
+        "ESTIQUE",
+        "ESTIQUE-PAMPA",
+        "SITAJARA",
+        "SUSAPAYA",
+        "TARUCACHI",
+        "TICACO"
+      ]
+    },
+    "TUMBES": {
+      "TUMBES": [
+        "TUMBES",
+        "CORRALES",
+        "LA CRUZ",
+        "PAMPAS DE HOSPITAL",
+        "SAN JACINTO",
+        "SAN JUAN DE LA VIRGEN"
+      ],
+      "CONTRALMIRANTE VILLAR": [
+        "ZORRITOS",
+        "CASITAS",
+        "CANOAS DE PUNTA SAL"
+      ],
+      "ZARUMILLA": [
+        "ZARUMILLA",
+        "AGUAS VERDES",
+        "MATAPALO",
+        "PAPAYAL"
+      ]
+    },
+    "UCAYALI": {
+      "CORONEL PORTILLO": [
+        "CALLERIA",
+        "CAMPOVERDE",
+        "IPARIA",
+        "MASISEA",
+        "YARINACOCHA",
+        "NUEVA REQUENA",
+        "MANANTAY"
+      ],
+      "ATALAYA": [
+        "RAYMONDI",
+        "SEPAHUA",
+        "TAHUANIA",
+        "YURUA"
+      ],
+      "PADRE ABAD": [
+        "PADRE ABAD",
+        "IRAZOLA",
+        "CURIMANA",
+        "NESHUYA",
+        "ALEXANDER VON HUMBOLDT",
+        "HUIPOCA",
+        "BOQUERON"
+      ],
+      "PURUS": [
+        "PURUS"
+      ]
+    }
+  }
+};
+
+// ─── Storage con fallback en memoria ───
+const _memStore = {};
+function stGet(k){ try{ return localStorage.getItem(k); }catch(e){ return _memStore[k]||null; } }
+function stSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} _memStore[k]=v; }
+
+function initConfig(){
+  const p = new URLSearchParams(window.location.search);
+  if(p.get('u')) CFG.url = decodeURIComponent(p.get('u'));
+  try{
+    const s = JSON.parse(stGet('cite_admin_cfg')||'{}');
+    if(s.key)  CFG.key  = s.key;
+    if(s.pass) CFG.pass = s.pass;
+    if(s.url && !CFG.url) CFG.url = s.url;
+  }catch(e){}
+}
+function saveCfg(){
+  stSet('cite_admin_cfg', JSON.stringify({url:CFG.url, key:CFG.key, pass:CFG.pass}));
+}
+
+// ─── Hash: SHA-256 con fallback ───
+function hashFallback(s){
+  let h1=5381, h2=52711;
+  for(let i=0;i<s.length;i++){
+    const c=s.charCodeAt(i);
+    h1=((h1<<5)+h1+c)|0;
+    h2=((h2<<5)+h2+c)|0;
+  }
+  return (((h1>>>0)*4294967296)+(h2>>>0)).toString(16).padStart(16,'0');
+}
+async function hashStr(s){
+  try{
+    if(!crypto||!crypto.subtle) throw new Error('no subtle');
+    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+    return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+  }catch(e){
+    return hashFallback(s);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 2: HELPERS Y UTILIDADES
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+function sel(tag){return`<option value="" disabled selected>${tag}</option>`}
+function opts(arr){return arr.map(v=>`<option value="${v.replace(/"/g,'&quot;')}">${v}</option>`).join('')}
+
+function formatDate(){
+  const d=new Date();
+  return d.getFullYear()+''+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 3: TEMPLATE DEL FORMULARIO
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function cardHTML(id){
+  const uid=id;
+  const regions=Object.keys(DATA.ubigeo).sort();
+  const oeKeys=Object.keys(DATA.oe_ae);
+  const compKeys=Object.keys(DATA.comp_act);
+
+  return`
+  <div class="benef-card" id="card-${uid}">
+    <div class="card-header">
+      <div class="card-num">Beneficiario <span class="badge">#${uid}</span></div>
+      ${uid>1?`<button class="btn-remove" onclick="removeCard(${uid})">✕ Eliminar</button>`:''}
+    </div>
+
+    <!-- SEC 1: CITE -->
+    <div class="section">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+        Datos del CITE
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label>CITE <span class="req">*</span></label>
+          <select id="cite-${uid}" onchange="onCiteChange(${uid})">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.cites)}
+          </select>
+        </div>
+        <div class="field">
+          <label>Tipo de CITE <span class="hint">(Se completa automáticamente)</span></label>
+          <div class="tipo-display" id="tipoDisplay-${uid}"><span class="tipo-badge" style="opacity:.4;color:var(--muted)">Pendiente</span></div>
+        </div>
+      </div>
+      <div class="grid grid-2" style="margin-top:14px">
+        <div class="field">
+          <label>Responsable del ingreso de información</label>
+          <input type="text" id="responsable-${uid}" placeholder="Nombre completo"/>
+        </div>
+        <div class="field">
+          <label>Tipo de beneficiario <span class="req">*</span></label>
+          <select id="tipoBenef-${uid}" onchange="onOtroChange('tipoBenef',${uid})">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.tipo_benef)}
+          </select>
+          <div class="otro-wrap" id="tipoBenefOtro-wrap-${uid}">
+            <span class="otro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+            <input type="text" id="tipoBenefOtro-${uid}" placeholder="Especifique…"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 2: DATOS PERSONALES -->
+    <div class="section">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+        Datos del Beneficiario
+      </div>
+      <div class="grid grid-4">
+        <div class="field">
+          <label>DNI</label>
+          <input type="text" id="dni-${uid}" placeholder="00000000" maxlength="8" oninput="this.value=this.value.replace(/\\D/g,'')"/>
+        </div>
+        <div class="field">
+          <label>Apellido paterno</label>
+          <input type="text" id="apPaterno-${uid}" placeholder="Apellido"/>
+        </div>
+        <div class="field">
+          <label>Apellido materno</label>
+          <input type="text" id="apMaterno-${uid}" placeholder="Apellido"/>
+        </div>
+        <div class="field">
+          <label>Nombres</label>
+          <input type="text" id="nombres-${uid}" placeholder="Nombre(s)"/>
+        </div>
+      </div>
+      <div class="grid grid-3" style="margin-top:14px">
+        <div class="field">
+          <label>Fecha de nacimiento</label>
+          <input type="date" id="fechaNac-${uid}" onchange="calcEdad(${uid})"/>
+        </div>
+        <div class="field">
+          <label>Edad <span class="hint">(Se calcula automáticamente)</span></label>
+          <input type="number" id="edad-${uid}" placeholder="Edad" class="auto-filled" readonly/>
+        </div>
+        <div class="field">
+          <label>Sexo <span class="req">*</span></label>
+          <select id="sexo-${uid}">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.sexo)}
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-3" style="margin-top:14px">
+        <div class="field">
+          <label>Celular</label>
+          <input type="text" id="celular-${uid}" placeholder="9XXXXXXXX" maxlength="9" oninput="this.value=this.value.replace(/\\D/g,'')"/>
+        </div>
+        <div class="field">
+          <label>Correo electrónico</label>
+          <input type="email" id="correo-${uid}" placeholder="correo@ejemplo.com"/>
+        </div>
+        <div class="field">
+          <label>RUC</label>
+          <input type="text" id="ruc-${uid}" placeholder="XXXXXXXXXX" maxlength="11" oninput="this.value=this.value.replace(/\\D/g,'')"/>
+        </div>
+      </div>
+      <div class="grid grid-2" style="margin-top:14px">
+        <div class="field">
+          <label>Domicilio</label>
+          <input type="text" id="domicilio-${uid}" placeholder="Dirección completa"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 3: UBICACIÓN -->
+    <div class="section">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Ubicación
+      </div>
+      <div class="grid grid-3">
+        <div class="field">
+          <label>Región</label>
+          <select id="region-${uid}" onchange="onRegionChange(${uid})">
+            ${sel('– Seleccione –')}
+            ${opts(regions)}
+          </select>
+        </div>
+        <div class="field">
+          <label>Provincia</label>
+          <select id="provincia-${uid}" onchange="onProvinciaChange(${uid})" disabled>
+            ${sel('– Seleccione –')}
+          </select>
+        </div>
+        <div class="field">
+          <label>Distrito</label>
+          <select id="distrito-${uid}" disabled>
+            ${sel('– Seleccione –')}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 4: SOCIAL -->
+    <div class="section">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M6 20V10l6-6 6 6v10"/><rect x="10" y="14" width="4" height="6"/></svg>
+        Datos Sociales y Educativos
+      </div>
+      <div class="grid grid-3">
+        <div class="field">
+          <label>Nivel de educación</label>
+          <select id="educacion-${uid}">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.nivel_edu)}
+          </select>
+        </div>
+        <div class="field">
+          <label>Autoidentificación</label>
+          <select id="autoident-${uid}" onchange="onOtroChange('autoident',${uid})">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.autoident)}
+          </select>
+          <div class="otro-wrap" id="autoidentOtro-wrap-${uid}">
+            <span class="otro-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
+            <input type="text" id="autoidentOtro-${uid}" placeholder="Especifique…"/>
+          </div>
+        </div>
+        <div class="field">
+          <label>¿Persona con discapacidad?</label>
+          <select id="discapacidad-${uid}">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.discapacidad)}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 5: ARTESANÍA -->
+    <div class="section">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Datos Artesanales
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Línea artesanal</label>
+          <select id="lineaArt-${uid}">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.linea_art)}
+          </select>
+        </div>
+        <div class="field">
+          <label>¿Pertenece a alguna asociación de artesanos?</label>
+          <select id="asociacion-${uid}">
+            ${sel('– Seleccione –')}
+            ${opts(DATA.asociacion)}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEC 6: PENDAR -->
+    <div class="section">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Estrategia PENDAR
+      </div>
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Objetivo Estratégico PENDAR <span class="req">*</span></label>
+          <select id="oe-${uid}" onchange="onOEChange(${uid})">
+            ${sel('– Seleccione –')}
+            ${opts(oeKeys)}
+          </select>
+        </div>
+        <div class="field">
+          <label>Acción Estratégica PENDAR <span class="req">*</span></label>
+          <select id="ae-${uid}" disabled>
+            ${sel('– Seleccione –')}
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-2" style="margin-top:14px">
+        <div class="field">
+          <label>Modalidad de Intervención <span class="req">*</span></label>
+          <select id="comp-${uid}" onchange="onCompChange(${uid})">
+            ${sel('– Seleccione –')}
+            ${opts(compKeys)}
+          </select>
+        </div>
+        <div class="field">
+          <label>Tipo de actividad <span class="req">*</span></label>
+          <select id="activ-${uid}" disabled>
+            ${sel('– Seleccione –')}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 4: FUNCIONES PRINCIPALES
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function addBeneficiary(){
+  benefCount++;
+  document.getElementById('benefCardsContainer').insertAdjacentHTML('beforeend',cardHTML(benefCount));
+  document.getElementById('totalCount').textContent=benefCount;
+  showToast('Beneficiario #'+benefCount+' agregado');
+}
+
+function removeCard(uid){
+  if(benefCount<=1){showToast('No se puede eliminar el único beneficiario');return}
+  document.getElementById('card-'+uid).remove();
+  benefCount--;
+  document.getElementById('totalCount').textContent=document.querySelectorAll('.benef-card').length;
+  showToast('Beneficiario eliminado');
+}
+
+// ─── OTRO (ESPECIFIQUE) ───
+function onOtroChange(field, uid){
+  const sel   = document.getElementById(field+'-'+uid);
+  const wrap  = document.getElementById(field+'Otro-wrap-'+uid);
+  const input = document.getElementById(field+'Otro-'+uid);
+  if(sel.value === 'Otro (Especifique)'){
+    wrap.classList.add('visible');
+    input.focus();
+  } else {
+    wrap.classList.remove('visible');
+    input.value = '';
+  }
+}
+
+// ─── CITE → TIPO ───
+function onCiteChange(uid){
+  const cite=document.getElementById('cite-'+uid).value;
+  const tipo=DATA.cite_tipo[cite]||'';
+  const el=document.getElementById('tipoDisplay-'+uid);
+  if(tipo){
+    el.innerHTML=`<span class="tipo-badge ${tipo.toLowerCase()}">${tipo}</span>`;
+  } else {
+    el.innerHTML=`<span class="tipo-badge" style="opacity:.4;color:var(--muted)">Pendiente</span>`;
+  }
+}
+
+// ─── FECHA NACIMIENTO → EDAD ───
+function calcEdad(uid){
+  const fechaNac = document.getElementById('fechaNac-'+uid).value;
+  if(!fechaNac) return;
+  const hoy = new Date();
+  const nac = new Date(fechaNac);
+  let edad = hoy.getFullYear() - nac.getFullYear();
+  const m = hoy.getMonth() - nac.getMonth();
+  if(m < 0 || (m === 0 && hoy.getDate() < nac.getDate())) edad--;
+  document.getElementById('edad-'+uid).value = edad >= 0 ? edad : '';
+}
+
+// ─── REGIÓN → PROVINCIA → DISTRITO ───
+function onRegionChange(uid){
+  const reg=document.getElementById('region-'+uid).value;
+  const provSel=document.getElementById('provincia-'+uid);
+  const distSel=document.getElementById('distrito-'+uid);
+  provSel.disabled=false;
+  provSel.innerHTML=sel('– Seleccione –');
+  if(reg && DATA.ubigeo[reg]){
+    const provs=Object.keys(DATA.ubigeo[reg]).sort();
+    provSel.innerHTML+=opts(provs);
+  }
+  distSel.disabled=true;
+  distSel.innerHTML=sel('– Seleccione –');
+}
+function onProvinciaChange(uid){
+  const reg=document.getElementById('region-'+uid).value;
+  const prov=document.getElementById('provincia-'+uid).value;
+  const distSel=document.getElementById('distrito-'+uid);
+  distSel.disabled=false;
+  distSel.innerHTML=sel('– Seleccione –');
+  if(reg && prov && DATA.ubigeo[reg] && DATA.ubigeo[reg][prov]){
+    distSel.innerHTML+=opts(DATA.ubigeo[reg][prov]);
+  }
+}
+
+// ─── OE → AE ───
+function onOEChange(uid){
+  const oe=document.getElementById('oe-'+uid).value;
+  const aeSel=document.getElementById('ae-'+uid);
+  aeSel.disabled=false;
+  aeSel.innerHTML=sel('– Seleccione –');
+  if(oe && DATA.oe_ae[oe]){
+    aeSel.innerHTML+=opts(DATA.oe_ae[oe]);
+  }
+}
+
+// ─── COMPONENTE → ACTIVIDAD ───
+function onCompChange(uid){
+  const comp=document.getElementById('comp-'+uid).value;
+  const actSel=document.getElementById('activ-'+uid);
+  actSel.disabled=false;
+  actSel.innerHTML=sel('– Seleccione –');
+  if(comp && DATA.comp_act[comp]){
+    actSel.innerHTML+=opts(DATA.comp_act[comp]);
+  }
+}
+
+// ─── LEER DATOS DE UN CARD ───
+function readCard(uid){
+  const g=id=>{ const el=document.getElementById(id+'-'+uid); return el?el.value||'':'';};
+  const cite=g('cite');
+  return{
+    CITE:cite,
+    "Tipo de CITE":DATA.cite_tipo[cite]||'',
+    "Responsable":g('responsable'),
+    "Tipo de beneficiario": g('tipoBenef')==='Otro (Especifique)' ? (g('tipoBenefOtro') ? 'Otro: '+g('tipoBenefOtro') : 'Otro') : g('tipoBenef'),
+    DNI:g('dni'),
+    "Apellido paterno":g('apPaterno'),
+    "Apellido materno":g('apMaterno'),
+    Nombres:g('nombres'),
+    "Fecha de nacimiento":g('fechaNac'),
+    Edad:g('edad'),
+    Sexo:g('sexo'),
+    Celular:g('celular'),
+    "Correo electrónico":g('correo'),
+    RUC:g('ruc'),
+    Domicilio:g('domicilio'),
+    "Región":g('region'),
+    Provincia:g('provincia'),
+    Distrito:g('distrito'),
+    "Nivel de educación":g('educacion'),
+    "Autoidentificación": g('autoident')==='Otro (Especifique)' ? (g('autoidentOtro') ? 'Otro: '+g('autoidentOtro') : 'Otro') : g('autoident'),
+    "¿Persona con discapacidad?":g('discapacidad'),
+    "Línea artesanal":g('lineaArt'),
+    "¿Pertenece a asociación?":g('asociacion'),
+    "Objetivo Estratégico PENDAR":g('oe'),
+    "Acción Estratégica PENDAR":g('ae'),
+    "Modalidad de Intervención":g('comp'),
+    "Tipo de actividad":g('activ')
+  };
+}
+
+function getAllCardIds(){
+  return Array.from(document.querySelectorAll('.benef-card')).map(c=>parseInt(c.id.split('-')[1]));
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 5: EXPORT LOCAL
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function descargarArchivo(filename, ws_data){
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  let xml = '<?xml version="1.0"?>\n';
+  xml += '<?mso-application progid="Excel.Sheet"?>\n';
+  xml += '<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n';
+  xml += '<Styles><Style ss:ID="H"><Font ss:Bold="1" ss:Color="#FFFFFF" ss:Size="11"/><Alignment ss:Horizontal="Center" ss:WrapText="1"/><Interior ss:Color="#1A2744" ss:Pattern="Solid"/></Style></Styles>\n';
+  xml += '<Worksheet ss:Name="Beneficiarios"><Table>\n';
+  ws_data.forEach((row, ri) => {
+    xml += '<Row>';
+    row.forEach(cell => {
+      const style = ri === 0 ? ' ss:StyleID="H"' : '';
+      const val = cell == null ? '' : cell;
+      const isNum = ri > 0 && val !== '' && !isNaN(val);
+      xml += `<Cell${style}><Data ss:Type="${isNum ? 'Number' : 'String'}">${esc(val)}</Data></Cell>`;
+    });
+    xml += '</Row>\n';
+  });
+  xml += '</Table></Worksheet></Workbook>';
+  const blob = new Blob([xml], {type:'application/vnd.ms-excel;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename.replace('.xlsx','.xls');
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function exportExcel(){
+  try{
+    const ids = getAllCardIds();
+    if(ids.length===0){showToast('No hay beneficiarios para exportar');return}
+    const rows = ids.map(id=>readCard(id));
+    const headers = Object.keys(rows[0]);
+    const tableData = [headers, ...rows.map(r=>headers.map(h=>r[h]))];
+    descargarArchivo('Beneficiarios_CITE_2026_'+formatDate()+'.xlsx', tableData);
+    showToast('Exportado localmente ('+rows.length+' beneficiarios)');
+  }catch(e){console.error(e);showToast('Error al exportar: '+e.message);}
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 6: ADMIN
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function renderAdminTable(){
+  const wrap=document.getElementById('adminTableWrap');
+  document.getElementById('adminCount').textContent=records.length+' registro'+(records.length!==1?'s':'');
+  if(records.length===0){
+    wrap.innerHTML='<div class="admin-empty">No hay registros. Los datos enviados aparecerán aquí.</div>';
+    return;
+  }
+  const headers=Object.keys(records[0]);
+  let html=`<table class="admin-table"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>`;
+  records.forEach(r=>{
+    html+=`<tr>${headers.map(h=>`<td>${r[h]||''}</td>`).join('')}</tr>`;
+  });
+  html+='</tbody></table>';
+  wrap.innerHTML=html;
+}
+
+function exportAdmin(){
+  try{
+    if(records.length===0){showToast('No hay registros');return}
+    const headers = Object.keys(records[0]);
+    const tableData = [headers, ...records.map(r=>headers.map(h=>r[h]))];
+    descargarArchivo('Historial_Beneficiarios_CITE_'+formatDate()+'.xlsx', tableData);
+    showToast('Historial exportado ('+records.length+' registros)');
+  }catch(e){console.error(e);showToast('Error: '+e.message);}
+}
+
+function clearRecords(){
+  if(records.length===0){showToast('No hay registros');return}
+  if(!confirm('¿Eliminar todos los '+records.length+' registros locales?'))return;
+  records=[];
+  renderAdminTable();
+  showToast('Registros eliminados');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 7: JSONP & API
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function jsonpFetch(url, timeout){
+  timeout = timeout || 15000;
+  return new Promise(function(resolve, reject){
+    var id    = '_jp_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);
+    var timer = setTimeout(function(){ cleanup(); reject(new Error('Tiempo de espera agotado')); }, timeout);
+    function cleanup(){
+      clearTimeout(timer);
+      delete window[id];
+      var s=document.getElementById(id);
+      if(s) s.parentNode.removeChild(s);
+    }
+    window[id] = function(data){ cleanup(); resolve(data); };
+    var script = document.createElement('script');
+    script.id  = id;
+    script.src = url + (url.indexOf('?')!==-1 ? '&' : '?') + 'callback='+id;
+    script.onerror = function(){ cleanup(); reject(new Error('No se pudo conectar')); };
+    document.head.appendChild(script);
+  });
+}
+
+async function enviarDatos(){
+  if(!CFG.url){ showToast('Sistema no configurado'); return }
+  const ids = getAllCardIds();
+  if(ids.length===0){ showToast('No hay beneficiarios'); return }
+  const btn = document.getElementById('btnSend');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Enviando...';
+  let sent=0, errs=0;
+  for(const id of ids){
+    try{
+      const rec  = readCard(id);
+      const data = encodeURIComponent(JSON.stringify(rec));
+      const j = await jsonpFetch(CFG.url+'?action=save&data='+data);
+      if(j && j.ok) sent++; else errs++;
+    } catch(e){ errs++; console.error(e); }
+  }
+  btn.disabled = false;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar datos';
+  if(errs===0){
+    showToast('✓ '+sent+' registro(s) enviado(s)');
+    if(isAdmin && adminAuth) setTimeout(cargarRegistros,1400);
+  } else if(sent>0){
+    showToast('Enviado: '+sent+' | Errores: '+errs);
+  } else {
+    showToast('No se pudo enviar');
+  }
+}
+
+async function cargarRegistros(){
+  if(!CFG.url||!CFG.key){ showToast('Configuración incompleta'); return }
+  const btn=document.getElementById('btnLoad');
+  if(btn) btn.disabled=true;
+  try{
+    const data = await jsonpFetch(CFG.url+'?action=load&key='+encodeURIComponent(CFG.key));
+    if(data.ok){
+      records = data.data||[];
+      renderAdminTable();
+      document.getElementById('cfgTime').textContent='Actualizado: '+new Date().toLocaleTimeString('es-PE');
+      showToast('Cargados '+records.length+' registro(s)');
+    } else { showToast('Error: '+(data.error||'desconocido')); }
+  } catch(e){ showToast('Error de conexión: '+e.message); }
+  if(btn) btn.disabled=false;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 8: AUTH & SETUP
+// ═══════════════════════════════════════════════════════════════════════════════
+
+async function doLogin(){
+  const pwd = document.getElementById('loginPassword').value;
+  if(!pwd) return;
+  if(await hashStr(pwd) === CFG.pass){
+    adminAuth = true;
+    document.getElementById('loginOverlay').classList.add('hidden');
+    document.body.style.visibility = 'visible';
+    showAdminUI();
+  } else {
+    document.getElementById('loginErr').classList.add('show');
+    document.getElementById('loginPassword').value='';
+    document.getElementById('loginPassword').focus();
+  }
+}
+
+function showSetup(){
+  document.getElementById('loginOverlay').classList.add('hidden');
+  document.getElementById('setupOverlay').classList.remove('hidden');
+}
+
+function generateKey(){
+  const c='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  _genKey='CITE2026_';
+  for(let i=0;i<18;i++) _genKey+=c[Math.floor(Math.random()*c.length)];
+  document.getElementById('setupKey').value = _genKey;
+}
+
+function copyAppsCode(){
+  const code = APPS_SCRIPT_CODE.replace(/CITE2026_cambiar_esta_clave/g, _genKey);
+  navigator.clipboard.writeText(code).then(()=>showToast('✓ Código copiado')).catch(()=>{
+    const w=window.open('','','width=700,height=500');
+    w.document.write('<pre style="padding:16px;font-size:12px">'+code.replace(/</g,'&lt;')+'</pre>');
+    showToast('Código abierto en nueva ventana');
+  });
+}
+
+async function saveSetup(){
+  const url = document.getElementById('setupUrl').value.trim();
+  const key = document.getElementById('setupKey').value.trim();
+  const pwd = document.getElementById('setupPass').value.trim();
+  const pwd2= document.getElementById('setupPass2').value.trim();
+  if(!url){ showToast('URL obligatoria'); return }
+  if(!key){ showToast('Genere la clave'); return }
+  if(!pwd){ showToast('Contraseña obligatoria'); return }
+  if(pwd!==pwd2){ showToast('Las contraseñas no coinciden'); return }
+  CFG.url  = url;
+  CFG.key  = key;
+  CFG.pass = await hashStr(pwd);
+  saveCfg();
+  showToast('¡Configuración guardada!');
+  document.getElementById('setupOverlay').classList.add('hidden');
+  document.getElementById('loginOverlay').classList.remove('hidden');
+  document.getElementById('loginPassword').value='';
+  document.getElementById('loginPassword').focus();
+}
+
+function showAdminUI(){
+  document.getElementById('adminPanel').classList.add('visible');
+  document.getElementById('btnExportLocal').style.display='inline-flex';
+  initLinks();
+  updateCfgStatus();
+}
+
+function updateCfgStatus(){
+  const dot=document.getElementById('cfgDot'), lbl=document.getElementById('cfgLbl');
+  if(CFG.url){dot.classList.remove('off'); lbl.textContent='Conectado – base centralizada';}
+  else       {dot.classList.add('off');    lbl.textContent='Sin URL configurada';}
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PARTE 9: LINKS & MODE
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function initLinks(){
+  const base=window.location.href.split('?')[0].split('#')[0];
+  const u = CFG.url ? '&u='+encodeURIComponent(CFG.url) : '';
+  document.getElementById('adminLinkInput').value=base+'?mode=admin'+u;
+  document.getElementById('shareLinkInput').value=base+'?mode=share'+u;
+}
+
+function copyLink(type){
+  const inputId=type==='admin'?'adminLinkInput':'shareLinkInput';
+  const input=document.getElementById(inputId);
+  input.select();
+  document.execCommand('copy');
+  const btn=input.nextElementSibling;
+  btn.textContent='¡Copiado!';
+  btn.classList.add('copied');
+  setTimeout(()=>{btn.textContent='Copiar';btn.classList.remove('copied')},1500);
+  showToast('Enlace copiado');
+}
+
+function detectMode(){
+  const mode = new URLSearchParams(window.location.search).get('mode');
+  if(mode==='share'){
+    isAdmin = false;
+    document.getElementById('linksPanel').style.display='none';
+    document.getElementById('adminPanel').classList.remove('visible');
+    document.getElementById('btnExportLocal').style.display='none';
+    if(!CFG.url){
+      document.getElementById('warnNoUrl').classList.add('show');
+      document.getElementById('btnSend').disabled=true;
+    }
+  } else {
+    isAdmin = true;
+    document.body.style.visibility = 'hidden';
+    if(CFG.pass){
+      document.getElementById('loginOverlay').classList.remove('hidden');
+    } else {
+      document.getElementById('setupOverlay').classList.remove('hidden');
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded',()=>{
+  initConfig();
+  addBeneficiary();
+  initLinks();
+  detectMode();
+});
+</script>
+</body>
+</html>
